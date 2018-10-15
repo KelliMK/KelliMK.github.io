@@ -1,3 +1,21 @@
 * {
-	background-color: #eda4b7;
+  background-color: #eda4b7
+}
+
+.nav-list {
+    display: flex;
+    margin: 2rem auto;
+    padding: 11px;
+    background-color: #000000;
+    min-width: 1000px;
+}
+
+.nav-button {
+    margin-left: 5px;
+    padding: 11px;
+}
+
+/* Change the link color on hover */
+.nav-button:first-child {
+    margin: 0;
 }
