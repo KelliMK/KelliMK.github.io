@@ -1,0 +1,34 @@
+Build the document structure
+	Create a main page (index.html) representing a professional portfolio, including the following:
+
+		an appropriate <header> element (x)
+		
+		a <nav> element linking to each of the sections (x)
+		
+		an <h1> element with your page title (there can be only one) (x)
+		
+		a <section> element for each of the following, each of which should contain an appropriate heading element:
+			
+			About Me, consisting of:
+
+				brief biographical information (x)
+
+				photo (x)
+
+				contact information ()
+
+				links to your professional networking site profiles, including at least GitHub and LinkedIn (x)
+				
+				list of skills ()
+
+		Include whatever other information you consider pertinent. ()
+
+	Projects, consisting of at least three, each represented as an <article>
+
+		name of project, linked to GitHub repository or the repository/project’s GitHub Pages ()
+
+		screenshot ()
+
+		skills / technologies used ()
+
+	an appropriate <footer> element ()

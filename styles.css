@@ -6,16 +6,15 @@
     display: flex;
     margin: 2rem auto;
     padding: 11px;
-    background-color: #000000;
     min-width: 1000px;
+    justify-content: space-between;
 }
 
 .nav-button {
-    margin-left: 5px;
     padding: 11px;
+    border: 50px 200px;
 }
 
-/* Change the link color on hover */
 .nav-button:first-child {
     margin: 0;
 }
