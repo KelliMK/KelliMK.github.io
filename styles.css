@@ -1,20 +1,191 @@
-* {
-  background-color: #eda4b7
+body {
+	background-image: url("../src/main/resources/static/images/trans-flag-background.jpg");
+	padding: 50px;
 }
 
-.nav-list {
+.container {
+	background: radial-gradient(circle, #eda4b7, #7d92e1);
+	display: grid;
+	padding: 0 1rem;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 2fr 1fr 4fr 2fr 6fr 8fr 2fr 10fr 2fr 10fr 8fr;
+	max-height: 1525px;
+	min-width: 600px;
+}
+
+#portfolio-name {
+	grid-row-start: 1;
+	grid-column: 1/4; 
+}
+
+#portfolio-career {
+	grid-row: 2/3;
+	grid-column-start: 1;
+}
+
+nav {
+	align-self: center;
     display: flex;
-    margin: 2rem auto;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 1rem auto;
     padding: 11px;
-    min-width: 1000px;
     justify-content: space-between;
+    grid-row: 3/4;
+    grid-column: 1/5;
 }
 
-.nav-button {
+.nav-button a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.nav-button a:hover {
+    background-color: #555;
+    color: white;
+    transition-duration: 1s;
+}
+
+#background-banner {
+	grid-row: 4/5;
+}
+
+#about-me {
+	grid-row: 5/6;
+	grid-column: 1/5;
+	display: flex;
+	justify-content: center;
+}
+
+
+#skills {
+	grid-row: 6/7;
+	grid-column: 1/5;
+	display: flex;
+	justify-content: space-around;
+}
+
+#list-of-skills {
+	border-style: groove;
+	padding: 5px;
+}
+
+#list-of-languages {
+	border-style: groove;
+	padding: 5px;
+}
+
+#finished-heading {
+	grid-row: 7/8;
+}
+
+#finished-projects {
+	grid-row: 8/9;
+	grid-column: 1/5;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+#pet-sanctuary {
+	background-image: url("../src/main/resources/static/images/animal-sanctuary-screenshot.png");
+	border-style: inset;
+	min-width: 300px;
+	min-height: 150px;
+}
+
+#pet-sanctuary a {
+	background-color: black;
+	color: white;
+}
+
+#review-site {
+	background-image: url("../src/main/resources/static/images/review-site-screenshot.png");
+	border-style: inset;
+	min-width: 300px;
+	min-height: 150px;
+}
+
+#review-site a {
+	background-color: black;
+	color: white;
+}
+
+#fortune-teller {
+	background-image: url("../src/main/resources/static/images/fortune-teller-screenshot.png");
+	border-style: inset;
+	min-width: 300px;
+	min-height: 150px;
+}
+
+#fortune-teller a {
+	background-color: black;
+	color: white;
+}
+
+
+#current-heading {
+	grid-row: 9/10;
+}
+
+#current-projects {
+	grid-row: 10/11;
+	grid-column: 1/5;
+	display: flex;
+	justify-content: center;
+}
+
+#nameless {
+	background-image: url("../src/main/resources/static/images/nameless-screenshot.png");
+	border-style: inset;
+	min-width: 300px;
+	min-height: 150px;
+}
+
+#nameless a {
+	background-color: black;
+	color: white;
+}
+
+#idle {
+	background-image: url("../src/main/resources/static/images/idle-game-screenshot.png");
+	border-style: inset;
+	min-width: 300px;
+	min-height: 150px;
+}
+
+#idle a {
+	background-color: black;
+	color: white;
+}
+
+footer {
+	align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 1rem auto;
     padding: 11px;
-    border: 50px 200px;
+    justify-content: space-between;
+	grid-row: 11/12;
+	grid-column: 1/5;
 }
 
-.nav-button:first-child {
-    margin: 0;
+.web-link a {
+	display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.web-link a:hover {
+    background-color: #555;
+    color: white;
+    transition-duration: 1s;
+}
+
+#contact-me-header {
+	padding-right: 25px;
 }

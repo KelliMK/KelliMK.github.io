@@ -7,91 +7,96 @@
 	</head>
 	<body>
 		<div class="container">
-			<header id="header">
-				<h1><a class="portfolio-name">Kelli Knipe's Portfolio</a></h1>
-				<h2><a class="portfolio-career">Programmer</a></h2>
-			</header>
-			<div class="nav-list">
-      			<nav>
-					<div class="nav-button buttonZero"><a href="#header">Home</div>
-					<div class="nav-button buttonOne"><a href="#about-me">About Me</a></div>
-					<div class="nav-button buttonTwo"><a href="#headshot">What I look like</a></div>
-					<div class="nav-button buttonThree"><a href="#skills">Programming Knowledge</a></div>
-					<div class="nav-button buttonFour"><a href="#finished-projects">Finished Projects</a></div>
-					<div class="nav-button buttonFive"><a href="#current-projects">Current Projects</a></div>
-					<div class="nav-button buttonSix"><a class="nav-button" href="#contact-me">Contact Info</a></div>
-				</nav>
-      		</div>
+			<!--<header id="header"> -->
+			<h1 id="portfolio-name"><a>Kelli Knipe's Portfolio</a></h1>
+			<h2 id="portfolio-career"><a>Programmer</a></h2>
+			<!--</header> -->
+      		<nav>
+				<div class="nav-button"><a href="#header">Home</a></div>
+				<div class="nav-button"><a href="#about-me">About Me</a></div>
+				<div class="nav-button"><a href="#skills">Programming Knowledge</a></div>
+				<div class="nav-button"><a href="#finished-projects">Finished Projects</a></div>
+				<div class="nav-button"><a href="#current-projects">Current Projects</a></div>
+				<div class="nav-button"><a class="nav-button" href="#contact-me">Contact Info</a></div>
+			</nav>
+			<h3 id="background-banner">Background Information:</h3>
 			<section id="about-me">
-				<h3 id="background-info-title" class="about-me-title">Background Information:</h3>
-				<p id="background-info">I am a software engineer with a passion for accessibility, storytelling, and learning. With my previous experience in academia, publishing, and organizing I am a strong team player and an exceptional public speaker. I am motivated to make software, especially games, that tell stories and teach people how to deal with emotions, both broad and complex. When I'm not programming I like to draw, write, and play the drums.</p>
+				<p ID="background-info">I am a software engineer with a passion for accessibility, storytelling, and learning. I am motivated to make software, especially games, that tell stories and teach people how to deal with emotions, both broad and complex. With my previous experience in academia, publishing, and organizing I am a strong team player and an exceptional public speaker. When I'm not programming I like to draw, write, and play the drums.</p>
 				<img id="headshot" src='../src/main/resources/static/images/Kelli-Headshot.png' alt='My current headshot'/>
 			</section>
 			<section id="skills">
-				<h3 id="skills-heading">Skills (that I'm confident about):</h3>
-				<ul id="list-of-skills">
-					<li>Object-Oriented Programming</li>
-					<li>Public Speaking</li>
-					<li>Spring Boot</li>
-					<li>Data Analysis</li>
-					<li>Test-Driven Design</li>
-				</ul>
-				<h3 id="programming-languages">Languages I Know</h3>
-				<ul id="list-of-languages">
-					<li>Java</li>
-					<li>C++</li>
-					<li>HTML5 and CSS3</li>
-					<li>JavaScript</li>
-					<li>Haskel</li>
-					<li>TADS 3</li>
-					<li>English</li>
-				</ul>
+				<div id="list-of-skills">
+					<h3> Skills (that I'm confident about): </h3>
+					<ul>
+						<li>Object-Oriented Programming</li>
+						<li>Public Speaking</li>
+						<li>Spring Boot</li>
+						<li>Data Analysis</li>
+						<li>Test-Driven Design</li>
+					</ul>
+				</div>
+				<div id="list-of-languages">
+					<h3> Languages I Know: </h3>
+					<ul>
+						<li>Java</li>
+						<li>C++</li>
+						<li>HTML5 and CSS3</li>
+						<li>JavaScript</li>
+						<li>Haskel</li>
+						<li>TADS 3</li>
+						<li>English</li>
+					</ul>
+				</div>
 			</section>
+			<h3 id="finished-heading">Finished Projects</h3>
 			<section id="finished-projects">
-				<h3>Finished Projects</h3>
-				<p><a href="https://github.com/KelliMK/pet-sanctuary-amok">Virtual Pet Sanctuary</a></p>
-				<ul>
-					<li>Project uses: Java, Gradle</li>
-					<li><img class="screenshot" src='../src/main/resources/static/images/animal-sanctuary-screenshot.png' alt='Pet Sanctuary Screenshot'/></li>
-					<li>java console game</li>
-				</ul>
-				<p><a href="https://github.com/KelliMK/review-site">Review of Presidential Crimes</a></p>
-				<ul>
-					<li>Project uses: Java, Gradle, Spring Boot, Thymeleaf</li>
-					<li><img class="screenshot" src='../src/main/resources/static/images/review-site-screenshot.png' alt='Review Site Screenshot'/></li>
-					<li>note: browser address "localhost:8080/reviews"</li>
-				</ul>
-				<p><a href="https://github.com/KelliMK/fortune-teller">Console Fortune Teller</a></p>
-				<ul>
-					<li>Project uses: Java</li>
-					<li><img class="screenshot" src='../src/main/resources/static/images/fortune-teller-screenshot.png' alt='fortune teller screenshot'/></li>
-					<li>note: java console game</li>
-				</ul>
+				<article id="pet-sanctuary" alt='Pet Sanctuary Screenshot'>
+					<p><a href="https://github.com/KelliMK/pet-sanctuary-amok">Virtual Pet Sanctuary</a></p>
+					<ul>
+						<li>Project uses: Java, Gradle</li>
+						<li>note: java console game</li>
+					</ul>
+				</article>
+				<article id="review-site" alt='Review Site Screenshot'>
+					<p><a href="https://github.com/KelliMK/review-site">Review of Presidential Crimes</a></p>
+					<ul>
+						<li>Project uses: Java, Gradle, Spring Boot, Thymeleaf</li>
+						<li>note: browser address "localhost:8080/reviews"</li>
+					</ul>
+				</article>
+				<article id="fortune-teller" alt='fortune teller screenshot'>
+					<p><a href="https://github.com/KelliMK/fortune-teller">Console Fortune Teller</a></p>
+					<ul>
+						<li>Project uses: Java</li>
+						<li>note: java console game</li>
+					</ul>
+				</article>
 			</section>
+			<h3 id="current-heading">Current Projects</h3>
 			<section id="current-projects">
-				<h3>Current Projects</h3>
-				<p><a href=https://github.com/KelliMK/Nameless-Game">Nameless</a></p>
-				<ul>
-					<li>Project uses: TADS 3</li>
-					<li><img class="screenshot" src='../src/main/resources/static/images/nameless-screenshot.png' alt='Nameless screenshot'/></li>
-					<li>note: Interactive Fiction Game</li>
-				</ul>
-				<p><a href="https://github.com/KelliMK/idle-game">Idle Game</a></p>
-				<ul>
-					<li>Project uses: Java</li>
-					<li><img class="screenshot" src='../src/main/resources/static/images/idle-game-screenshot.png' alt='idle game screenshot'/></li>
-					<li>note: One of two contributors, java console game</li>
-				</ul>
+				<article id="nameless" alt="background is a screenshot of nameless">
+					<p><a href=https://github.com/KelliMK/Nameless-Game"><strong>Nameless</strong></a></p>
+					<ul>
+						<li><a>Project uses: TADS 3</a></li>
+						<li><a>note: Interactive Fiction Game</a></li>
+					</ul>
+				</article>
+				<article id="idle" alt='background is a screenshot of the idle game'>
+					<p><a href="https://github.com/KelliMK/idle-game"><strong>Idle Game</strong></a></p>
+					<ul>
+						<li><a>Project uses: Java</a></li>
+						<li><a>note: One of two contributors</a></li> 
+						<li><a>note: java console game</a></li>
+					</ul>
+				</article>
 			</section>
-			<section id="contact-me">
+			<footer id="contact-me">
+				<!-- Two Rows, min three columns-->
 				<h3 id="contact-me-header">Contact Me</h3>
 				<p class='web-link' id="github"><a href='https://github.com/KelliMK'>My Github Profile</a></p>
 				<p class='web-link' id="LinkedIn"><a href='https://www.linkedin.com/in/kelli-knipe/'>My LinkedIn Profile</a></p>
 				<p class='web-link' id="email"><a href="mailto:kelli.m.knipe@gmail.com">Email me</a></p>
-			</section>
+			</footer>
 		</div>
 	</body>
 </html>
-
-
-
