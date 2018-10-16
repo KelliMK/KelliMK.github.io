@@ -9,7 +9,7 @@ body {
 	padding: 0 1rem;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 2fr 1fr 4fr 2fr 6fr 8fr 2fr 10fr 2fr 10fr 8fr;
-	max-height: 1525px;
+	max-height: 2475px;
 	min-width: 600px;
 }
 
@@ -68,13 +68,16 @@ nav {
 }
 
 #list-of-skills {
+	background-color: #eda4b7;
 	border-style: groove;
 	padding: 5px;
 }
 
 #list-of-languages {
+	background-color: #7d92e1;
 	border-style: groove;
 	padding: 5px;
+	min-width: 282px;
 }
 
 #finished-heading {
@@ -92,8 +95,9 @@ nav {
 #pet-sanctuary {
 	background-image: url("../src/main/resources/static/images/animal-sanctuary-screenshot.png");
 	border-style: inset;
-	min-width: 300px;
-	min-height: 150px;
+	min-width: 600px;
+	min-height: 300px;
+	font-size: 150%;
 }
 
 #pet-sanctuary a {
@@ -104,8 +108,9 @@ nav {
 #review-site {
 	background-image: url("../src/main/resources/static/images/review-site-screenshot.png");
 	border-style: inset;
-	min-width: 300px;
-	min-height: 150px;
+	min-width: 600px;
+	min-height: 300px;
+	font-size: 150%;
 }
 
 #review-site a {
@@ -116,8 +121,9 @@ nav {
 #fortune-teller {
 	background-image: url("../src/main/resources/static/images/fortune-teller-screenshot.png");
 	border-style: inset;
-	min-width: 300px;
-	min-height: 150px;
+	min-width: 600px;
+	min-height: 300px;
+	font-size: 150%;
 }
 
 #fortune-teller a {
@@ -135,13 +141,15 @@ nav {
 	grid-column: 1/5;
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
+	font-size: 150%;
 }
 
 #nameless {
 	background-image: url("../src/main/resources/static/images/nameless-screenshot.png");
 	border-style: inset;
-	min-width: 300px;
-	min-height: 150px;
+	min-width: 600px;
+	min-height: 300px;
 }
 
 #nameless a {
@@ -152,8 +160,8 @@ nav {
 #idle {
 	background-image: url("../src/main/resources/static/images/idle-game-screenshot.png");
 	border-style: inset;
-	min-width: 300px;
-	min-height: 150px;
+	min-width: 600px;
+	min-height: 300px;
 }
 
 #idle a {
