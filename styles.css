@@ -92,38 +92,61 @@ nav {
 	flex-wrap: wrap;
 }
 
-#pet-sanctuary {
-	background-image: url("../src/main/resources/static/images/animal-sanctuary-screenshot.png");
+.project {
 	border-style: inset;
 	min-width: 600px;
 	min-height: 300px;
 	font-size: 150%;
-}
-
-.project:hover {
-	opacity: 0.5;
 }
 
 .project a {
 	background-color: black;
 	color: white;
-	opacity: 1;
 }
 
-#review-site {
+div::after {
+  content: "";
+  background: url(image.jpg);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+#pet-sanctuary::after {
+	background-image: url("../src/main/resources/static/images/animal-sanctuary-screenshot.png");
+	content: "";
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;  
+}
+
+#review-site::after {
 	background-image: url("../src/main/resources/static/images/review-site-screenshot.png");
-	border-style: inset;
-	min-width: 600px;
-	min-height: 300px;
-	font-size: 150%;
+	content: "";
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;  
 }
 
-#fortune-teller {
+#fortune-teller::after {
 	background-image: url("../src/main/resources/static/images/fortune-teller-screenshot.png");
-	border-style: inset;
-	min-width: 600px;
-	min-height: 300px;
-	font-size: 150%;
+	content: "";
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;  
 }
 
 
@@ -140,18 +163,30 @@ nav {
 	font-size: 150%;
 }
 
-#nameless {
+#nameless::after {
 	background-image: url("../src/main/resources/static/images/nameless-screenshot.png");
-	border-style: inset;
-	min-width: 600px;
-	min-height: 300px;
+	content: "";
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;  
 }
 
-#idle {
+#idle::after {
 	background-image: url("../src/main/resources/static/images/idle-game-screenshot.png");
-	border-style: inset;
-	min-width: 600px;
-	min-height: 300px;
+	content: "";
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;  
+}
+
+#idle::after:hover {
+	opacity: 0.5;
 }
 
 footer {
