@@ -100,9 +100,14 @@ nav {
 	font-size: 150%;
 }
 
-#pet-sanctuary a {
+.project:hover {
+	opacity: 0.5;
+}
+
+.project a {
 	background-color: black;
 	color: white;
+	opacity: 1;
 }
 
 #review-site {
@@ -113,22 +118,12 @@ nav {
 	font-size: 150%;
 }
 
-#review-site a {
-	background-color: black;
-	color: white;
-}
-
 #fortune-teller {
 	background-image: url("../src/main/resources/static/images/fortune-teller-screenshot.png");
 	border-style: inset;
 	min-width: 600px;
 	min-height: 300px;
 	font-size: 150%;
-}
-
-#fortune-teller a {
-	background-color: black;
-	color: white;
 }
 
 
@@ -152,21 +147,11 @@ nav {
 	min-height: 300px;
 }
 
-#nameless a {
-	background-color: black;
-	color: white;
-}
-
 #idle {
 	background-image: url("../src/main/resources/static/images/idle-game-screenshot.png");
 	border-style: inset;
 	min-width: 600px;
 	min-height: 300px;
-}
-
-#idle a {
-	background-color: black;
-	color: white;
 }
 
 footer {
