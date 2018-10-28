@@ -1,6 +1,7 @@
 body {
 	background-image: url("../src/main/resources/static/images/trans-flag-background.jpg");
 	background-repeat: no-repeat;
+	background-size: cover;
 	background-attachment: scroll;
 	padding: 50px;
 }
@@ -96,8 +97,8 @@ nav {
 
 .project {
 	border-style: inset;
-	max-width: 600px;
-	max-height: 300px;
+	width: 600px;
+	height: 300px;
 	font-size: 150%;
 }
 
@@ -130,7 +131,6 @@ nav {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	font-size: 150%;
 }
 
 #nameless {
