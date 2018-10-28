@@ -2,7 +2,7 @@ body {
 	background-image: url("../src/main/resources/static/images/trans-flag-background.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-attachment: scroll;
+	background-attachment: local;
 	padding: 50px;
 }
 
