@@ -173,7 +173,7 @@ footer {
 	font-size: ;
 }
 
-.active, .collapsible:hover {
+.active, .collapse-list:hover {
 	background-color: blue;
 }
 
