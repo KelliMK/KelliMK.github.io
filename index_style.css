@@ -17,6 +17,7 @@ body {
 	grid-template-rows: 2fr 1fr 4fr 2fr 6fr 8fr 2fr 10fr 2fr 8fr 8fr;
 	max-height: 2650px;
 	min-width: 600px;
+	max-width: 1600px;
 }
 
 #portfolio-name {
