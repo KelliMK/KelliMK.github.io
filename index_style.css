@@ -10,7 +10,7 @@ body {
 	display: grid;
 	padding: 0 1rem;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 2fr 1fr 4fr 2fr 6fr 8fr 2fr 10fr 2fr 10fr 8fr;
+	grid-template-rows: 2fr 1fr 4fr 2fr 6fr 8fr 2fr 10fr 2fr 8fr 8fr;
 	max-height: 2650px;
 	min-width: 600px;
 }
