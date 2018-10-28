@@ -74,19 +74,6 @@ nav {
 	justify-content: space-around;
 }
 
-#list-of-skills {
-	background-color: #eda4b7;
-	border-style: groove;
-	padding: 5px;
-}
-
-#list-of-languages {
-	background-color: #7d92e1;
-	border-style: groove;
-	padding: 5px;
-	min-width: 282px;
-}
-
 #finished-heading {
 	grid-row: 7/8;
 }
@@ -172,4 +159,27 @@ footer {
 
 #contact-me-header {
 	padding-right: 25px;
+}
+
+.collapse-list {
+	background-color: #7d92e1;
+	border-style: groove;
+	color: #444;
+	cursor: crosshair;
+	padding: 20px;
+	width: 100%;
+	text-align: left;
+	outline: none;
+	font-size: ;
+}
+
+.active-list, .collapsible:hover {
+	background-color: blue;
+}
+
+.list-content {
+	padding: 0 20px;
+	display: none;
+	overflow: hidden;
+	background-color: #f1f1f1;
 }
