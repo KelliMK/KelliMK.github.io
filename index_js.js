@@ -16,8 +16,8 @@ function showDivs(n) {
     x[slideIndex-1].style.display = "block"; 
 }
 
-let coll = document.getElementByClassName("collapse-list");
-let i;
+var coll = document.getElementByClassName("collapse-list");
+var i;
 
 for (i = 0; i < coll.length; i++) {
 	coll[i].addEventListener("click", function() {
