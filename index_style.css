@@ -70,8 +70,17 @@ nav {
 #skills {
 	grid-row: 6/7;
 	grid-column: 1/5;
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	justify-content: space-around;
+}
+
+#skill-list {
+	grid-column: 1/2;
+}
+
+#language-list {
+	grid-column: 2/3;
 }
 
 #finished-heading {
@@ -164,25 +173,35 @@ footer {
 .collapsible {
 	background-color: #7d92e1;
 	border-style: groove;
-	color: #444;
+	color: black;
 	cursor: crosshair;
 	padding: 20px;
 	width: 100%;
-	text-align: left;
+	text-align: center;
 	outline: none;
 	font-size: 15px;
-	height: 60px;
 }
 
 .active, .collapsible:hover {
 	background-color: blue;
-	height: initial;
 }
 
 .content {
 	padding: 0 20px;
-	background-color: #f1f1f1;
+	background-color: #7d92e1;
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;
+}
+
+.collapsible:after {
+    content: '\2193'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2191"; /* Unicode character for "minus" sign (-) */
 }
