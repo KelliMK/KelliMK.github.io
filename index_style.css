@@ -96,8 +96,8 @@ nav {
 
 .project {
 	border-style: inset;
-	min-width: 600px;
-	min-height: 300px;
+	max-width: 600px;
+	max-height: 300px;
 	font-size: 150%;
 }
 
