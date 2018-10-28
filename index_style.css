@@ -161,7 +161,7 @@ footer {
 	padding-right: 25px;
 }
 
-.collapse-list {
+.collapsible {
 	background-color: #7d92e1;
 	border-style: groove;
 	color: #444;
@@ -170,16 +170,19 @@ footer {
 	width: 100%;
 	text-align: left;
 	outline: none;
-	font-size: ;
+	font-size: 15px;
+	height: 60px;
 }
 
-.active, .collapse-list:hover {
+.active, .collapsible:hover {
 	background-color: blue;
+	height: initial;
 }
 
 .content {
 	padding: 0 20px;
-	display: none;
-	overflow: hidden;
 	background-color: #f1f1f1;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
 }
