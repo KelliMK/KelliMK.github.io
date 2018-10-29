@@ -56,15 +56,18 @@
 
 		<section id="finished-projects">
 			<div id="finished-slides-flexbox">
-				<img class="finished-slides project-slides" src="../src/main/resources/static/images/clock-slide.png" href="../src/main/resources/static/clock.html">
-				<img class="finished-slides project-slides" src="../src/main/resources/static/images/drum-machine-slide.png" href="../src/main/resources/static/drum-machine.html">
-				<img class="finished-slides project-slides" src="../src/main/resources/static/images/review-site-slide.png" href="https://github.com/KelliMK/review-site">
-				<img class="finished-slides project-slides" src="../src/main/resources/static/images/animal-sanctuary-slide.png" href="https://github.com/KelliMK/pet-sanctuary-amok">
+				<a href="../src/main/resources/static/clock.html"><img class="finished-slides project-slides" src="../src/main/resources/static/images/clock-slide.png"></a>
+				<a href="../src/main/resources/static/drum-machine.html"><img class="finished-slides project-slides" src="../src/main/resources/static/images/drum-machine-slide.png"></a>
+				<a href="https://github.com/KelliMK/review-site"><img class="finished-slides project-slides" src="../src/main/resources/static/images/review-site-slide.png"></a>
+				<a href="https://github.com/KelliMK/pet-sanctuary-amok"><img class="finished-slides project-slides" src="../src/main/resources/static/images/animal-sanctuary-slide.png"></a>
 			</div>
 			<div id="finished-buttons-flexbox">
 				<button class="slide-button finished-slide-button slide-display-left" onclick="plusFinishedDivs(-1)">&#10094;</button>
-				<button class="slide-button current-slide-button slide-description" onclick="plusFinishedDivs(1)">toggle description</button>
+				<button class="slide-button current-slide-button slide-description" onclick="toggleFinishedDescription(+1)">toggle description</button>
 				<button class="slide-button finished-slide-button slide-display-right" onclick="plusFinishedDivs(+1)">&#10095;</button>
+			</div>
+			<div id="finished-description-flexbox">
+				<p id="finished-description"></p>
 			</div>
 		</section>
 
@@ -77,8 +80,11 @@
 			</div>
 			<div id="current-buttons-flexbox">
 				<button class="slide-button current-slide-button slide-display-left" onclick="plusCurrentDivs(-1)">&#10094;</button>
-				<button class="slide-button current-slide-button slide-description" onclick="plusCurrentDivs(1)">toggle description</button>
+				<button class="slide-button current-slide-button slide-description" onclick="toggleCurrentDescription(1)">toggle description</button>
 				<button class="slide-button current-slide-button slide-display-right" onclick="plusCurrentDivs(+1)">&#10095;</button>
+			</div>
+			<div id="current-description-flexbox">
+				<p id="current-description"></p>
 			</div>
 		</section>
 
@@ -112,7 +118,7 @@
 	for (i; i < coll.length; i++) {
 		coll[i].addEventListener("click", function() {
 			this.classList.toggle("activelist");
-			var content = this.nextElementSibling;
+			let content = this.nextElementSibling;
 			if (content.style.maxHeight) {
 				content.style.maxHeight = null;
 			} else {
@@ -133,10 +139,31 @@
 
 
 	let finishedSlideIndex = 1;
+	let dropFinishedDescription = 1;
 	showFinishedDivs(finishedSlideIndex);
+	showFinishedDescription(dropFinishedDescription, finishedSlideIndex)
+
+	function toggleFinishedDescription(n) {
+		showFinishedDescription(dropFinishedDescription += n, finishedSlideIndex);
+	}
 
 	function plusFinishedDivs(n) {
 		showFinishedDivs(finishedSlideIndex += n);
+		showFinishedDescription(dropFinishedDescription, finishedSlideIndex);
+	}
+
+	function showFinishedDescription(x, n) {
+		if (x % 2 == 1) {
+			document.getElementById("finished-description").innerHTML = null;
+		} else if (n % 4 == 1) {
+			document.getElementById("finished-description").innerHTML = "a clock";
+		} else if (n % 4 == 2) {
+			document.getElementById("finished-description").innerHTML = "a drum kit";
+		} else if (n % 4 == 3) {
+			document.getElementById("finished-description").innerHTML = "a bunch of fuckers killing people for money";
+		} else if (n % 4 == 0) {
+			document.getElementById("finished-description").innerHTML = "my dream job";
+		}
 	}
 
 	function showFinishedDivs(n) {
@@ -153,10 +180,27 @@
 
 
 	let currentSlideIndex = 1;
+	let dropCurrentDescription = 1;
 	showCurrentDivs(currentSlideIndex);
+	showCurrentDescription(dropCurrentDescription, currentSlideIndex)
+
+	function toggleCurrentDescription(n) {
+		showCurrentDescription(dropCurrentDescription += n, finishedSlideIndex);
+	}
 
 	function plusCurrentDivs(n) {
 		showCurrentDivs(currentSlideIndex += n);
+		showCurrentDescription(dropCurrentDescription, currentSlideIndex);
+	}
+
+	function showCurrentDescription(x, n) {
+		if (x % 2 == 1) {
+			document.getElementById("current-description").innerHTML = null;
+		} else if (n % 2 == 1) {
+			document.getElementById("current-description").innerHTML = "I'm making a text adventure yo";
+		} else if (n % 2 == 0) {
+			document.getElementById("current-description").innerHTML = "I'm making a game where the player just kind of exists";
+		}
 	}
 
 	function showCurrentDivs(n) {
