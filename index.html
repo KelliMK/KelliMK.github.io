@@ -1,120 +1,131 @@
 <!DOCTYPE html>
 <html lang='en'>
-	<head>
-		<meta charset='UTF-8'/>
-		<title>Kelli M Knipe's Portfolio</title>
-		<link rel='stylesheet' href='index_style.css'/>
-		<link id="favicon" rel="shortcut icon" type="image/png" href="src/main/resources/static/images/favicon.png" />
-	</head>
-	<body>
-		<div class="container">
-			<!--<header id="header"> -->
-			<h1 id="portfolio-name"><a>Kelli Knipe's Portfolio</a></h1>
-			<h2 id="portfolio-career"><a>Programmer</a></h2>
-			<!--</header> -->
-      		<nav>
-				<div class="nav-button"><a href="#header">Home</a></div>
-				<div class="nav-button"><a href="#about-me">About Me</a></div>
-				<div class="nav-button"><a href="#skills">Programming Knowledge</a></div>
-				<div class="nav-button"><a href="#finished-projects">Finished Projects</a></div>
-				<div class="nav-button"><a href="#current-projects">Current Projects</a></div>
-				<div class="nav-button"><a class="nav-button" href="#contact-me">Contact Info</a></div>
-			</nav>
-			<h3 id="background-banner">Background Information:</h3>
-			<section id="about-me">
-				<p ID="background-info">I am a software engineer with a passion for accessibility, storytelling, and learning. I am motivated to make software, especially games, that tell stories and teach people how to deal with emotions, both broad and complex. With my previous experience in academia, publishing, and organizing I am a strong team player and an exceptional public speaker. When I'm not programming I like to draw, write, and play the drums.</p>
-				<img id="headshot" src='../src/main/resources/static/images/Kelli-Headshot.png' alt='My current headshot'/>
-			</section>
-			<section id="skills">
-				<div id="skill-list">
-					<button class="collapsible">Skillz</button>
-					<ul class="content">
-						<li>Object-Oriented Programming</li>
-						<li>Public Speaking</li>
-						<li>Spring Boot</li>
-						<li>Data Analysis</li>
-						<li>Test-Driven Design</li>
-					</ul>
-				</div>
-				<div id="language-list">
-					<button class="collapsible">Languages I Know</button>
-					<ul class="content">
-						<li>Java</li>
-						<li>C++</li>
-						<li>HTML5 and CSS3</li>
-						<li>JavaScript</li>
-						<li>Haskel</li>
-						<li>TADS 3</li>
-						<li>English</li>
-					</ul>
-				</div>
-			</section>
-			<h3 id="finished-heading">Finished Projects</h3>
-			<section id="finished-projects">
-				<article id="pet-sanctuary" class="project" alt='Pet Sanctuary Screenshot'>
-					<p><a href="https://github.com/KelliMK/pet-sanctuary-amok">Virtual Pet Sanctuary</a></p>
-					<ul>
-						<li><a>Project uses: Java, Gradle</a></li>
-						<li><a>note: java console game</a></li>
-					</ul>
-				</article>
-				<article id="review-site" class="project" alt='Review Site Screenshot'>
-					<p><a href="https://github.com/KelliMK/review-site">Review of Presidential Crimes</a></p>
-					<ul>
-						<li><a>Project uses: Java, Gradle, Spring Boot, Thymeleaf</a></li>
-						<li><a>note: browser address "localhost:8080/reviews"</a></li>
-					</ul>
-				</article>
-				<article id="fortune-teller" class="project" alt='fortune teller screenshot'>
-					<p><a href="https://github.com/KelliMK/fortune-teller">Console Fortune Teller</a></p>
-					<ul>
-						<li><a>Project uses: Java</a></li>
-						<li><a>note: java console game</a></li>
-					</ul>
-				</article>
-			</section>
-			<h3 id="current-heading">Current Projects</h3>
-			<section id="current-projects">
-				<article id="nameless" class="project" alt="background is a screenshot of nameless">
-					<p><a href=https://github.com/KelliMK/Nameless-Game"><strong>Nameless</strong></a></p>
-					<ul>
-						<li><a>Project uses: TADS 3</a></li>
-						<li><a>note: Interactive Fiction Game</a></li>
-					</ul>
-				</article>
-				<article id="idle" class="project" alt='background is a screenshot of the idle game'>
-					<p><a href="https://github.com/KelliMK/idle-game"><strong>Idle Game</strong></a></p>
-					<ul>
-						<li><a>Project uses: Java</a></li>
-						<li><a>note: One of two contributors</a></li> 
-						<li><a>note: java console game</a></li>
-					</ul>
-				</article>
-			</section>
-			<footer id="contact-me">
-				<!-- Two Rows, min three columns-->
-				<h3 id="contact-me-header">Contact Me</h3>
-				<p class='web-link' id="github"><a href='https://github.com/KelliMK'>My Github Profile</a></p>
-				<p class='web-link' id="LinkedIn"><a href='https://www.linkedin.com/in/kelli-knipe/'>My LinkedIn Profile</a></p>
-				<p class='web-link' id="email"><a href="mailto:kelli.m.knipe@gmail.com">Email me</a></p>
-			</footer>
-		</div>
-	</body>
+<head>
+	<meta charset='UTF-8'/>
+	<title>Kelli M Knipe's Portfolio</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel='stylesheet' href='index_style.css'/>
+	<link id="favicon" rel="shortcut icon" type="image/png" href="src/main/resources/static/images/favicon.png" />
+</head>
+<body>
+	<div class="topnav" id="myTopnav">
+		<a href="#portfolio-name" class="active">Home</a>
+		<a href="#about-me">About Me</a>
+		<a href="#skills">Programming Knowledge</a>
+		<a href="#finished-projects">Finished Projects</a>
+		<a href="#current-projects">Current Projects</a>
+		<a href="#contact-me">Contact Info</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()"><span class="fa fa-bars"></span></a>
+	</div>
+	<div class="container">
+		<h1 id="portfolio-name"><a>Kelli Knipe's Portfolio</a></h1>
+		<h2 id="portfolio-career"><a>Programmer</a></h2>
+		<h3 id="background-banner">Background Information:</h3>
+		<section id="about-me">
+			<img id="headshot" src='../src/main/resources/static/images/Kelli-Headshot.png' alt='My current headshot'/>
+			<p ID="background-info">I am a software engineer with a passion for accessibility, storytelling, and learning. I am motivated to make software, especially games, that tell stories and teach people how to deal with emotions, both broad and complex. With my previous experience in academia, publishing, and organizing I am a strong team player and an exceptional public speaker. When I'm not programming I like to draw, write, and play the drums.</p>
+		</section>
+		<section id="skills">
+			<div id="skill-list">
+				<button class="collapsible">Skillz</button>
+				<ul class="content">
+					<li>Object-Oriented Programming</li>
+					<li>Public Speaking</li>
+					<li>Spring Boot</li>
+					<li>Data Analysis</li>
+					<li>Test-Driven Design</li>
+					<li>Research</li>
+					<li>Writing</li>
+				</ul>
+			</div>
+			<div id="language-list">
+				<button class="collapsible">Languages I Know</button>
+				<ul class="content">
+					<li>Java</li>
+					<li>C++</li>
+					<li>HTML5 and CSS3</li>
+					<li>JavaScript</li>
+					<li>Haskel</li>
+					<li>TADS 3</li>
+					<li>English</li>
+				</ul>
+			</div>
+		</section>
+		<h3 id="finished-heading">Finished Projects</h3>
+		<section id="finished-projects">
+			<article id="pet-sanctuary" class="project" alt='Pet Sanctuary Screenshot'>
+				<p><a href="https://github.com/KelliMK/pet-sanctuary-amok">Virtual Pet Sanctuary</a></p>
+				<ul>
+					<li><a>Project uses: Java, Gradle</a></li>
+					<li><a>note: java console game</a></li>
+				</ul>
+			</article>
+			<article id="review-site" class="project" alt='Review Site Screenshot'>
+				<p><a href="https://github.com/KelliMK/review-site">Review of Presidential Crimes</a></p>
+				<ul>
+					<li><a>Project uses: Java, Gradle, Spring Boot, Thymeleaf</a></li>
+					<li><a>note: browser address "localhost:8080/reviews"</a></li>
+				</ul>
+			</article>
+			<article id="fortune-teller" class="project" alt='fortune teller screenshot'>
+				<p><a href="https://github.com/KelliMK/fortune-teller">Console Fortune Teller</a></p>
+				<ul>
+					<li><a>Project uses: Java</a></li>
+					<li><a>note: java console game</a></li>
+				</ul>
+			</article>
+		</section>
+		<h3 id="current-heading">Current Projects</h3>
+		<section id="current-projects">
+			<article id="nameless" class="project" alt="background is a screenshot of nameless">
+				<p><a href=https://github.com/KelliMK/Nameless-Game"><strong>Nameless</strong></a></p>
+				<ul>
+					<li><a>Project uses: TADS 3</a></li>
+					<li><a>note: Interactive Fiction Game</a></li>
+				</ul>
+			</article>
+			<article id="idle" class="project" alt='background is a screenshot of the idle game'>
+				<p><a href="https://github.com/KelliMK/idle-game"><strong>Idle Game</strong></a></p>
+				<ul>
+					<li><a>Project uses: Java</a></li>
+					<li><a>note: One of two contributors</a></li> 
+					<li><a>note: java console game</a></li>
+				</ul>
+			</article>
+		</section>
+		<footer id="contact-me">
+			<!-- Two Rows, min three columns-->
+			<h3 id="contact-me-header">Contact Me</h3>
+			<p class='web-link' id="github"><a href='https://github.com/KelliMK'>My Github Profile</a></p>
+			<p class='web-link' id="LinkedIn"><a href='https://www.linkedin.com/in/kelli-knipe/'>My LinkedIn Profile</a></p>
+			<p class='web-link' id="email"><a href="mailto:kelli.m.knipe@gmail.com">Email me</a></p>
+		</footer>
+	</div>
+</body>
 
-	<script>
-		var coll = document.getElementsByClassName("collapsible");
-		var i = 0;
+<script>
+	var coll = document.getElementsByClassName("collapsible");
+	var i = 0;
 
-		for (i; i < coll.length; i++) {
-			coll[i].addEventListener("click", function() {
-				this.classList.toggle("active");
-				var content = this.nextElementSibling;
-				if (content.style.maxHeight) {
-					content.style.maxHeight = null;
-				} else {
-					content.style.maxHeight = content.scrollHeight + "px";
+	for (i; i < coll.length; i++) {
+		coll[i].addEventListener("click", function() {
+			this.classList.toggle("activelist");
+			var content = this.nextElementSibling;
+			if (content.style.maxHeight) {
+				content.style.maxHeight = null;
+			} else {
+				content.style.maxHeight = content.scrollHeight + "px";
+			}
+		});
+	}
+
+	function myFunction() {
+		var x = document.getElementById("myTopnav");
+		if (x.className === "topnav") {
+			x.className += " responsive";
+		} else {
+			x.className = "topnav";
 		}
-	});
-}
+	}
 </script>
 </html>
