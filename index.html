@@ -107,13 +107,13 @@
 		}
 
 		let finishedSlideIndex = 1;
-		showDivs(finishedSlideIndex);
+		showFinishedDivs(finishedSlideIndex);
 
-		function plusDivs(n) {
-			showDivs(finishedSlideIndex += n);
+		function plusFinishedDivs(n) {
+			showFinishedDivs(finishedSlideIndex += n);
 		}
 
-		function showDivs(n) {
+		function showFinishedDivs(n) {
 			let j;
 			let y = document.getElementsByClassName("finished-slides");
 			if (n > y.length) {finishedSlideIndex = 1} 
@@ -125,13 +125,13 @@
 		}
 
 		let currentSlideIndex = 1;
-		showDivs(currentSlideIndex);
+		showCurrentDivs(currentSlideIndex);
 
-		function plusDivs(n) {
-			showDivs(currentSlideIndex += n);
+		function plusCurrentDivs(n) {
+			showCurrentDivs(currentSlideIndex += n);
 		}
 
-		function showDivs(n) {
+		function showCurrentDivs(n) {
 			let k;
 			let z = document.getElementsByClassName("current-slides");
 			if (n > z.length) {currentSlideIndex = 1} 
