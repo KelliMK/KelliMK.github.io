@@ -55,93 +55,138 @@
 		<h3 id="finished-heading">Finished Projects</h3>
 
 		<section id="finished-projects">
-			<img class="finished-slides project-slides" src="../src/main/resources/static/images/clock-slide.png">
-			<img class="finished-slides project-slides" src="../src/main/resources/static/images/drum-machine-slide.png">
-			<img class="finished-slides project-slides" src="../src/main/resources/static/images/review-site-slide.png">
-			<img class="finished-slides project-slides" src="../src/main/resources/static/images/animal-sanctuary-slide.png">
-			<p></p>
-			<button class="slide-button finished-slide-button slide-display-left" onclick="plusFinishedDivs(-1)">&#10094;</button>
-			<button class="slide-button finished-slide-button slide-display-right" onclick="plusFinishedDivs(+1)">&#10095;</button>
+			<div id="finished-slides-flexbox">
+				<img class="finished-slides project-slides" src="../src/main/resources/static/images/clock-slide.png" href="../src/main/resources/static/clock.html">
+				<img class="finished-slides project-slides" src="../src/main/resources/static/images/drum-machine-slide.png" href="../src/main/resources/static/drum-machine.html">
+				<img class="finished-slides project-slides" src="../src/main/resources/static/images/review-site-slide.png" href="https://github.com/KelliMK/review-site">
+				<img class="finished-slides project-slides" src="../src/main/resources/static/images/animal-sanctuary-slide.png" href="https://github.com/KelliMK/pet-sanctuary-amok">
+			</div>
+			<div id="finished-buttons-flexbox">
+				<button class="slide-button finished-slide-button slide-display-left" onclick="plusFinishedDivs(-1)">&#10094;</button>
+				<button class="slide-button current-slide-button slide-description" onclick="plusFinishedDivs(1)">toggle description</button>
+				<button class="slide-button finished-slide-button slide-display-right" onclick="plusFinishedDivs(+1)">&#10095;</button>
+			</div>
 		</section>
 
 		<h3 id="current-heading">Current Projects</h3>
 
 		<section id="current-projects">
-			<img class="current-slides project-slides" src="../src/main/resources/static/images/nameless-slide.png">
-			<img class="current-slides project-slides" src="../src/main/resources/static/images/idle-game-slide.png">
-			<p></p>
-			<button class="slide-button current-slide-button slide-display-left" onclick="plusCurrentDivs(-1)">&#10094;</button>
-			<button class="slide-button current-slide-button slide-display-right" onclick="plusCurrentDivs(+1)">&#10095;</button>
+			<div id="current-slides-flexbox">
+				<img class="current-slides project-slides" src="../src/main/resources/static/images/nameless-slide.png" href="https://github.com/KelliMK/Nameless-Game">
+				<img class="current-slides project-slides" src="../src/main/resources/static/images/idle-game-slide.png" href="https://github.com/KelliMK/idle-game">
+			</div>
+			<div id="current-buttons-flexbox">
+				<button class="slide-button current-slide-button slide-display-left" onclick="plusCurrentDivs(-1)">&#10094;</button>
+				<button class="slide-button current-slide-button slide-description" onclick="plusCurrentDivs(1)">toggle description</button>
+				<button class="slide-button current-slide-button slide-display-right" onclick="plusCurrentDivs(+1)">&#10095;</button>
+			</div>
 		</section>
 
-		<footer id="contact-me">
-				<h3 id="contact-me-header">Contact Me</h3>
-				<p class='web-link' id="github"><a href='https://github.com/KelliMK'>My Github Profile</a></p>
-				<p class='web-link' id="LinkedIn"><a href='https://www.linkedin.com/in/kelli-knipe/'>My LinkedIn Profile</a></p>
-				<p class='web-link' id="email"><a href="mailto:kelli.m.knipe@gmail.com">Email me</a></p>
-			</footer>
-		</div>
-	</body>
+		<footer>
+			<button id="contact-me-button">Contact Me</button>
 
-	<script>
-		var coll = document.getElementsByClassName("collapsible");
-		var i = 0;
+			<div id="contact-me" class="modal">
+				<div class="modal-content">
+					<div class="modal-header">
+						<span class="close">&times;</span>
+						<h2>Contact Me</h2>
+					</div>
+					<div class="modal-body">
+						<p><a href="https://github.com/KelliMK">My Github Profile</a></p>
+						<p><a href="https://www.linkedin.com/in/kelli-knipe/">My LinkedIn Profile</a></p>
+						<p><a href="mailto:kelli.m.knipe@gmail.com">Email Me</a></p>
+					</div>
+					<div class="modal-footer">
+						<h3>I mean why not, right?</h3>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
 
-		for (i; i < coll.length; i++) {
-			coll[i].addEventListener("click", function() {
-				this.classList.toggle("activelist");
-				var content = this.nextElementSibling;
-				if (content.style.maxHeight) {
-					content.style.maxHeight = null;
-				} else {
-					content.style.maxHeight = content.scrollHeight + "px";
-				}
-			});
-		}
+<script>
+	const coll = document.getElementsByClassName("collapsible");
+	let i = 0;
 
-		function myFunction() {
-			let x = document.getElementById("myTopnav");
-			if (x.className === "topnav") {
-				x.className += " responsive";
+	for (i; i < coll.length; i++) {
+		coll[i].addEventListener("click", function() {
+			this.classList.toggle("activelist");
+			var content = this.nextElementSibling;
+			if (content.style.maxHeight) {
+				content.style.maxHeight = null;
 			} else {
-				x.className = "topnav";
+				content.style.maxHeight = content.scrollHeight + "px";
 			}
+		});
+	}
+
+	function myFunction() {
+		let x = document.getElementById("myTopnav");
+		if (x.className === "topnav") {
+			x.className += " responsive";
+		} else {
+			x.className = "topnav";
 		}
+	}
 
-		let finishedSlideIndex = 1;
-		showFinishedDivs(finishedSlideIndex);
 
-		function plusFinishedDivs(n) {
-			showFinishedDivs(finishedSlideIndex += n);
+
+	let finishedSlideIndex = 1;
+	showFinishedDivs(finishedSlideIndex);
+
+	function plusFinishedDivs(n) {
+		showFinishedDivs(finishedSlideIndex += n);
+	}
+
+	function showFinishedDivs(n) {
+		let j;
+		let y = document.getElementsByClassName("finished-slides");
+		if (n > y.length) {finishedSlideIndex = 1} 
+			if (n < 1) {finishedSlideIndex = y.length} ;
+		for (j = 0; j < y.length; j++) {
+			y[j].style.display = "none"; 
 		}
+		y[finishedSlideIndex-1].style.display = "block"; 
+	}
 
-		function showFinishedDivs(n) {
-			let j;
-			let y = document.getElementsByClassName("finished-slides");
-			if (n > y.length) {finishedSlideIndex = 1} 
-				if (n < 1) {finishedSlideIndex = y.length} ;
-			for (j = 0; j < y.length; j++) {
-				y[j].style.display = "none"; 
-			}
-			y[finishedSlideIndex-1].style.display = "block"; 
+
+
+	let currentSlideIndex = 1;
+	showCurrentDivs(currentSlideIndex);
+
+	function plusCurrentDivs(n) {
+		showCurrentDivs(currentSlideIndex += n);
+	}
+
+	function showCurrentDivs(n) {
+		let k;
+		let z = document.getElementsByClassName("current-slides");
+		if (n > z.length) {currentSlideIndex = 1} 
+			if (n < 1) {currentSlideIndex = z.length} ;
+		for (k = 0; k < z.length; k++) {
+			z[k].style.display = "none"; 
 		}
+		z[currentSlideIndex-1].style.display = "block"; 
+	}
 
-		let currentSlideIndex = 1;
-		showCurrentDivs(currentSlideIndex);
 
-		function plusCurrentDivs(n) {
-			showCurrentDivs(currentSlideIndex += n);
-		}
 
-		function showCurrentDivs(n) {
-			let k;
-			let z = document.getElementsByClassName("current-slides");
-			if (n > z.length) {currentSlideIndex = 1} 
-				if (n < 1) {currentSlideIndex = z.length} ;
-			for (k = 0; k < z.length; k++) {
-				z[k].style.display = "none"; 
-			}
-			z[currentSlideIndex-1].style.display = "block"; 
-		}
-	</script>
-	</html>
+	const modal = document.getElementById('contact-me');
+	const modalBtn = document.getElementById("contact-me-button");
+	let modalSpan = document.getElementsByClassName("close")[0];
+	modalBtn.onclick = function() {
+    	modal.style.display = "block";
+	}
+
+	modalSpan.onclick = function() {
+    	modal.style.display = "none";
+	}
+
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+    	    modal.style.display = "none";
+    	}
+	}
+</script>
+</html>
