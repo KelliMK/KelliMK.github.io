@@ -5,7 +5,7 @@
 	<title>Kelli M Knipe's Portfolio</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel='stylesheet' href='index_style.css'/>
-	<link id="favicon" rel="shortcut icon" type="image/png" href="src/main/resources/static/images/favicon.png" />
+	<link id="favicon" rel="shortcut icon" type="image/png" href="src/main/resources/static/images/favicon.png"/>
 </head>
 <body>
 	<div class="topnav" id="myTopnav">
@@ -51,81 +51,95 @@
 				</ul>
 			</div>
 		</section>
+
 		<h3 id="finished-heading">Finished Projects</h3>
+
 		<section id="finished-projects">
-			<article id="pet-sanctuary" class="project" alt='Pet Sanctuary Screenshot'>
-				<p><a href="https://github.com/KelliMK/pet-sanctuary-amok">Virtual Pet Sanctuary</a></p>
-				<ul>
-					<li><a>Project uses: Java, Gradle</a></li>
-					<li><a>note: java console game</a></li>
-				</ul>
-			</article>
-			<article id="review-site" class="project" alt='Review Site Screenshot'>
-				<p><a href="https://github.com/KelliMK/review-site">Review of Presidential Crimes</a></p>
-				<ul>
-					<li><a>Project uses: Java, Gradle, Spring Boot, Thymeleaf</a></li>
-					<li><a>note: browser address "localhost:8080/reviews"</a></li>
-				</ul>
-			</article>
-			<article id="fortune-teller" class="project" alt='fortune teller screenshot'>
-				<p><a href="https://github.com/KelliMK/fortune-teller">Console Fortune Teller</a></p>
-				<ul>
-					<li><a>Project uses: Java</a></li>
-					<li><a>note: java console game</a></li>
-				</ul>
-			</article>
+			<img class="finished-slides" src="../src/main/resources/static/images/clock-slide.png">
+			<img class="finished-slides" src="../src/main/resources/static/images/drum-machine-slide.png">
+			<img class="finished-slides" src="../src/main/resources/static/images/review-site-slide.png">
+			<img class="finished-slides" src="../src/main/resources/static/images/animal-sanctuary-slide.png">
+			<button class="slide-button finished-slide-button slide-display-left" onclick="plusDivs(-1)">&#10094;</button>
+			<button class="slide-button finished-slide-button slide-display-right" onclick="plusDivs(+1)">&#10095;</button>
 		</section>
+
 		<h3 id="current-heading">Current Projects</h3>
+
 		<section id="current-projects">
-			<article id="nameless" class="project" alt="background is a screenshot of nameless">
-				<p><a href=https://github.com/KelliMK/Nameless-Game"><strong>Nameless</strong></a></p>
-				<ul>
-					<li><a>Project uses: TADS 3</a></li>
-					<li><a>note: Interactive Fiction Game</a></li>
-				</ul>
-			</article>
-			<article id="idle" class="project" alt='background is a screenshot of the idle game'>
-				<p><a href="https://github.com/KelliMK/idle-game"><strong>Idle Game</strong></a></p>
-				<ul>
-					<li><a>Project uses: Java</a></li>
-					<li><a>note: One of two contributors</a></li> 
-					<li><a>note: java console game</a></li>
-				</ul>
-			</article>
+			<img class="current-slides" src="../src/main/resources/static/images/nameless-slide.png">
+			<img class="current-slides" src="../src/main/resources/static/images/idle-game-slide.png">
+			<button class="slide-button current-slide-button slide-display-left" onclick="plusDivs(-1)">&#10094;</button>
+			<button class="slide-button current-slide-button slide-display-right" onclick="plusDivs(+1)">&#10095;</button>
 		</section>
+
 		<footer id="contact-me">
-			<!-- Two Rows, min three columns-->
-			<h3 id="contact-me-header">Contact Me</h3>
-			<p class='web-link' id="github"><a href='https://github.com/KelliMK'>My Github Profile</a></p>
-			<p class='web-link' id="LinkedIn"><a href='https://www.linkedin.com/in/kelli-knipe/'>My LinkedIn Profile</a></p>
-			<p class='web-link' id="email"><a href="mailto:kelli.m.knipe@gmail.com">Email me</a></p>
-		</footer>
-	</div>
-</body>
+				<h3 id="contact-me-header">Contact Me</h3>
+				<p class='web-link' id="github"><a href='https://github.com/KelliMK'>My Github Profile</a></p>
+				<p class='web-link' id="LinkedIn"><a href='https://www.linkedin.com/in/kelli-knipe/'>My LinkedIn Profile</a></p>
+				<p class='web-link' id="email"><a href="mailto:kelli.m.knipe@gmail.com">Email me</a></p>
+			</footer>
+		</div>
+	</body>
 
-<script>
-	var coll = document.getElementsByClassName("collapsible");
-	var i = 0;
+	<script>
+		var coll = document.getElementsByClassName("collapsible");
+		var i = 0;
 
-	for (i; i < coll.length; i++) {
-		coll[i].addEventListener("click", function() {
-			this.classList.toggle("activelist");
-			var content = this.nextElementSibling;
-			if (content.style.maxHeight) {
-				content.style.maxHeight = null;
-			} else {
-				content.style.maxHeight = content.scrollHeight + "px";
-			}
-		});
-	}
-
-	function myFunction() {
-		var x = document.getElementById("myTopnav");
-		if (x.className === "topnav") {
-			x.className += " responsive";
-		} else {
-			x.className = "topnav";
+		for (i; i < coll.length; i++) {
+			coll[i].addEventListener("click", function() {
+				this.classList.toggle("activelist");
+				var content = this.nextElementSibling;
+				if (content.style.maxHeight) {
+					content.style.maxHeight = null;
+				} else {
+					content.style.maxHeight = content.scrollHeight + "px";
+				}
+			});
 		}
-	}
-</script>
-</html>
+
+		function myFunction() {
+			let x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+				x.className += " responsive";
+			} else {
+				x.className = "topnav";
+			}
+		}
+
+		let finishedSlideIndex = 1;
+		showDivs(finishedSlideIndex);
+
+		function plusDivs(n) {
+			showDivs(finishedSlideIndex += n);
+		}
+
+		function showDivs(n) {
+			let j;
+			let y = document.getElementsByClassName("finished-slides");
+			if (n > y.length) {finishedSlideIndex = 1} 
+				if (n < 1) {finishedSlideIndex = y.length} ;
+			for (j = 0; j < y.length; j++) {
+				y[j].style.display = "none"; 
+			}
+			y[finishedSlideIndex-1].style.display = "block"; 
+		}
+
+		let currentSlideIndex = 1;
+		showDivs(currentSlideIndex);
+
+		function plusDivs(n) {
+			showDivs(currentSlideIndex += n);
+		}
+
+		function showDivs(n) {
+			let k;
+			let z = document.getElementsByClassName("current-slides");
+			if (n > z.length) {currentSlideIndex = 1} 
+				if (n < 1) {currentSlideIndex = z.length} ;
+			for (k = 0; k < z.length; k++) {
+				z[k].style.display = "none"; 
+			}
+			z[currentSlideIndex-1].style.display = "block"; 
+		}
+	</script>
+	</html>

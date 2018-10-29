@@ -90,6 +90,12 @@ body {
 	justify-content: center;
 }
 
+#headshot {
+	padding-right: 20px;
+	height: 175px;
+	width: 175px;
+}
+
 
 #skills {
 	grid-row: 5/6;
