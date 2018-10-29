@@ -113,6 +113,13 @@ body {
 	grid-column: 2/3;
 }
 
+.project-slides {
+	border-style: inset;
+	width: 600px;
+	height: 300px;
+	font-size: 150%;
+}
+
 #finished-heading {
 	grid-row: 6/7;
 }
@@ -120,36 +127,7 @@ body {
 #finished-projects {
 	grid-row: 7/8;
 	grid-column: 1/5;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
 }
-
-.project {
-	border-style: inset;
-	width: 600px;
-	height: 300px;
-	font-size: 150%;
-}
-
-.project a {
-	background-color: black;
-	color: white;
-}
-
-#pet-sanctuary {
-	background-image: url("../src/main/resources/static/images/animal-sanctuary-screenshot.png");
-}
-
-#review-site {
-	background-image: url("../src/main/resources/static/images/review-site-screenshot.png");
-	
-}
-
-#fortune-teller {
-	background-image: url("../src/main/resources/static/images/fortune-teller-screenshot.png");
-}
-
 
 #current-heading {
 	grid-row: 8/9;
@@ -158,17 +136,6 @@ body {
 #current-projects {
 	grid-row: 9/10;
 	grid-column: 1/5;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-
-#nameless {
-	background-image: url("../src/main/resources/static/images/nameless-screenshot.png");
-}
-
-#idle {
-	background-image: url("../src/main/resources/static/images/idle-game-screenshot.png");
 }
 
 footer {
