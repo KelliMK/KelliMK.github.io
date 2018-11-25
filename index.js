@@ -31,8 +31,9 @@ let dropFinishedDescription = 0;
 showFinishedDivs(finishedSlideIndex);
 showFinishedDescription(dropFinishedDescription, finishedSlideIndex)
 
-function toggleFinishedDescription(n) {
-	showFinishedDescription(dropFinishedDescription += n, finishedSlideIndex);
+function toggleFinishedDescription() {
+	++dropFinishedDescription;
+	showFinishedDescription(dropFinishedDescription, finishedSlideIndex);
 }
 
 function plusFinishedDivs(n) {
@@ -41,16 +42,18 @@ function plusFinishedDivs(n) {
 }
 
 function showFinishedDescription(x, n) {
-	if (x % 4 == 4) {
+	if (x % 2 == 1) {
+		if (n % 4 == 1) {
+			document.getElementById("finished-description").innerHTML = "a clock";
+		} else if (n % 4 == 2) {
+			document.getElementById("finished-description").innerHTML = "a drum kit";
+		} else if (n % 4 == 3) {
+			document.getElementById("finished-description").innerHTML = "A Fullstack Review Website for programming languages";
+		} else if (n % 4 == 0) {
+			document.getElementById("finished-description").innerHTML = "my dream job";
+		}
+	} else if (x % 2 == 0) {
 		document.getElementById("finished-description").innerHTML = null;
-	} else if (n % 4 == 1) {
-		document.getElementById("finished-description").innerHTML = "a clock";
-	} else if (n % 4 == 2) {
-		document.getElementById("finished-description").innerHTML = "a drum kit";
-	} else if (n % 4 == 3) {
-		document.getElementById("finished-description").innerHTML = "A Fullstack Review Website for programming languages";
-	} else if (n % 4 == 0) {
-		document.getElementById("finished-description").innerHTML = "my dream job";
 	}
 }
 
@@ -90,7 +93,7 @@ function showCurrentDescription(x, n) {
 			document.getElementById("current-description").innerHTML = "I'm making an idle game in Java";
 		}
 	} else if (x % 2 == 0) {
-		document.getElementById("current-description") = null;
+		document.getElementById("current-description").innerHTML = null;
 	}
 }
 

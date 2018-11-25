@@ -11,8 +11,9 @@ body {
 
 .container {
 	background: radial-gradient(circle, #eda4b7, #7d92e1);
+	margin: auto;
 	display: grid;
-	padding: 0 1rem;
+	padding: 50px;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	max-height: 2650px;
 	min-width: 600px;
@@ -34,7 +35,8 @@ body {
 .topnav {
 	background-color: #333;
 	overflow: hidden;
-	max-width: 1600px;
+	max-width: 1700px;
+	margin: auto;
 }
 
 .topnav a {
@@ -186,12 +188,20 @@ body {
 
 #current-description-flexbox {
 	grid-row:3/4;
-	justify-content: center;
+	display: flex;
+}
+
+#current-description {
+	align-items: center;
 }
 
 #finished-description-flexbox {
 	grid-row:3/4;
-	justify-content: center;
+	display: flex;
+}
+
+#finished-description {
+	align-items: center;
 }
 
 
