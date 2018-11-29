@@ -44,13 +44,13 @@ function plusFinishedDivs(n) {
 function showFinishedDescription(x, n) {
 	if (x % 2 == 1) {
 		if (n % 4 == 1) {
-			document.getElementById("finished-description").innerHTML = "a clock";
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A clock built entirely out of JavaScript</p>";
 		} else if (n % 4 == 2) {
-			document.getElementById("finished-description").innerHTML = "a drum kit";
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A 'drum kit' the user can play with their keyboard</p>";
 		} else if (n % 4 == 3) {
-			document.getElementById("finished-description").innerHTML = "A Fullstack Review Website for programming languages";
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A Fullstack Review Website for programming languages</p>";
 		} else if (n % 4 == 0) {
-			document.getElementById("finished-description").innerHTML = "my dream job";
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A simulation of an animal shelter full of dragons and cows, hosted entirely inside your Java console</p>";
 		}
 	} else if (x % 2 == 0) {
 		document.getElementById("finished-description").innerHTML = null;
@@ -88,9 +88,9 @@ function plusCurrentDivs(n) {
 function showCurrentDescription(x, n) {
 	if (x % 2 == 1) {
 		if (n % 2 == 0) {
-			document.getElementById("current-description").innerHTML = "I'm making a text adventure";
+			document.getElementById("current-description").innerHTML = "<p class=\"description\">A text adventure built in TADS 3</p>";
 		} else if (n % 2 == 1) {
-			document.getElementById("current-description").innerHTML = "I'm making an idle game in Java";
+			document.getElementById("current-description").innerHTML = "<p class=\"description\">An idle game in Java</p>";
 		}
 	} else if (x % 2 == 0) {
 		document.getElementById("current-description").innerHTML = null;
