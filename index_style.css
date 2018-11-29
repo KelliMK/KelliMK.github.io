@@ -193,6 +193,7 @@ body {
 
 #current-description {
 	align-items: center;
+	justify-content: center;
 }
 
 #finished-description-flexbox {
@@ -202,6 +203,7 @@ body {
 
 #finished-description {
 	align-items: center;
+	justify-content: center;
 }
 
 .description {
