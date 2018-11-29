@@ -189,6 +189,7 @@ body {
 #current-description-flexbox {
 	grid-row:3/4;
 	display: flex;
+	justify-content: center;
 }
 
 #current-description {
@@ -199,6 +200,7 @@ body {
 #finished-description-flexbox {
 	grid-row:3/4;
 	display: flex;
+	justify-content: center;
 }
 
 #finished-description {
@@ -213,7 +215,6 @@ body {
 	max-width: 600px;
 	min-width: 300px
 	max-height: 200px;
-	min-height: 100px;
 	justify-content: center;
 	align-items: center;
 }
