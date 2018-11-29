@@ -204,13 +204,18 @@ body {
 #finished-description {
 	align-items: center;
 	justify-content: center;
+	display: flex;
 }
 
 .description {
 	border: inset;
 	background-color: #7d92e1;
 	max-width: 600px;
-	max-height: 100px;
+	min-width: 300px
+	max-height: 200px;
+	min-height: 100px;
+	justify-content: center;
+	align-items: center;
 }
 
 
