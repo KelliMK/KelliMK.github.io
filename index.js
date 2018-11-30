@@ -60,12 +60,12 @@ function showFinishedDescription(x, n) {
 function showFinishedDivs(n) {
 	let j;
 	let y = document.getElementsByClassName("finished-slides");
-	if (n > y.length) {finishedSlideIndex = 1} 
+	if (n > y.length) {finishedSlideIndex = 1}
 		if (n < 1) {finishedSlideIndex = y.length} ;
 	for (j = 0; j < y.length; j++) {
-		y[j].style.display = "none"; 
+		y[j].style.display = "none";
 	}
-	y[finishedSlideIndex-1].style.display = "block"; 
+	y[finishedSlideIndex-1].style.display = "block";
 }
 
 
@@ -88,9 +88,9 @@ function plusCurrentDivs(n) {
 function showCurrentDescription(x, n) {
 	if (x % 2 == 1) {
 		if (n % 2 == 0) {
-			document.getElementById("current-description").innerHTML = "<p class=\"description\">A text adventure built in TADS 3</p>";
-		} else if (n % 2 == 1) {
 			document.getElementById("current-description").innerHTML = "<p class=\"description\">An idle game in Java</p>";
+		} else if (n % 2 == 1) {
+			document.getElementById("current-description").innerHTML = "<p class=\"description\">A text adventure built in TADS 3</p>";
 		}
 	} else if (x % 2 == 0) {
 		document.getElementById("current-description").innerHTML = null;
@@ -100,12 +100,12 @@ function showCurrentDescription(x, n) {
 function showCurrentDivs(n) {
 	let k;
 	let z = document.getElementsByClassName("current-slides");
-	if (n > z.length) {currentSlideIndex = 1} 
+	if (n > z.length) {currentSlideIndex = 1}
 		if (n < 1) {currentSlideIndex = z.length} ;
 	for (k = 0; k < z.length; k++) {
-		z[k].style.display = "none"; 
+		z[k].style.display = "none";
 	}
-	z[currentSlideIndex-1].style.display = "block"; 
+	z[currentSlideIndex-1].style.display = "block";
 }
 
 const modal = document.getElementById('contact-me');
