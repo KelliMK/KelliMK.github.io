@@ -12,7 +12,6 @@ body {
 	background: radial-gradient(circle, #eda4b7, #7d92e1);
 	margin: auto;
 	display: grid;
-	padding: 50px;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	max-height: 2650px;
 	min-width: 600px;
@@ -117,7 +116,6 @@ body {
 }
 
 .project-slides {
-	border-style: inset;
 	width: 600px;
 	height: 300px;
 	font-size: 150%;
@@ -210,7 +208,6 @@ body {
 }
 
 .description {
-	border: inset;
 	background-color: #7d92e1;
 	max-width: 600px;
 	min-width: 300px
@@ -247,7 +244,6 @@ footer {
 
 .collapsible {
 	background-color: #7d92e1;
-	border-style: groove;
 	color: black;
 	cursor: crosshair;
 	padding: 20px;
