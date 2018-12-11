@@ -33,9 +33,9 @@ body {
 .topnav {
 	background-color: #333;
 	overflow: hidden;
-	max-width: 1700px;
+	max-width: 1600px;
 	margin: auto;
-	min-width: 700px;
+	min-width: 600px;
 }
 
 .topnav a {
