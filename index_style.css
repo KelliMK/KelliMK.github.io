@@ -137,8 +137,34 @@ body {
 	justify-content: center;
 }
 
-#finished-buttons-flexbox {
+.slide-text {
 	grid-row: 2/3;
+	display: flex;
+	justify-content: center;
+}
+
+#slide-text-finished {
+	background-color: black;
+	color: white;
+	font-size: 15px;
+	padding: 8px 12px;
+	bottom: 8px;
+	width: 576px;
+	text-align: center;
+}
+
+#slide-text-current {
+	background-color: black;
+	color: white;
+	font-size: 15px;
+	padding: 8px 12px;
+	bottom: 8px;
+	width: 576px;
+	text-align: center;
+}
+
+#finished-buttons-flexbox {
+	grid-row: 3/4;
 	display: flex;
 	justify-content: center;
 
@@ -161,7 +187,7 @@ body {
 }
 
 #current-buttons-flexbox {
-	grid-row: 2/3;
+	grid-row: 3/4;
 	display: flex;
 	justify-content: center;
 }
@@ -185,7 +211,7 @@ body {
 }
 
 #current-description-flexbox {
-	grid-row:3/4;
+	grid-row:4/5;
 	display: flex;
 	justify-content: center;
 }
@@ -196,7 +222,7 @@ body {
 }
 
 #finished-description-flexbox {
-	grid-row:3/4;
+	grid-row:4/5;
 	display: flex;
 	justify-content: center;
 }
@@ -266,7 +292,6 @@ footer {
 }
 
 .collapsible:after {
-    content: '\2193';
     font-size: 13px;
     color: white;
     float: right;
@@ -274,7 +299,6 @@ footer {
 }
 
 .activelist:after {
-    content: '\2191';
     font-size: 13px;
     color: white;
     float: right;

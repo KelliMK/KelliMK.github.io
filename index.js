@@ -42,18 +42,35 @@ function plusFinishedDivs(n) {
 }
 
 function showFinishedDescription(x, n) {
-	if (x % 2 == 1) {
-		if (n % 4 == 1) {
-			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A clock built entirely out of JavaScript</p>";
-		} else if (n % 4 == 2) {
-			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A 'drum kit' the user can play with their keyboard</p>";
-		} else if (n % 4 == 3) {
-			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A Fullstack Review Website for programming languages</p>";
-		} else if (n % 4 == 0) {
-			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A simulation of an animal shelter full of dragons and cows, hosted entirely inside your Java console</p>";
+	if (n % 4 == 1) {
+		document.getElementById("slide-text-finished").innerHTML = "JavaScript Clock";
+		if (x % 2 == 1) {
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A clock whose cogs are built entirely out of JavaScript</p>";
+		} else if (x % 2 == 0) {
+			document.getElementById("finished-description").innerHTML = null;
 		}
-	} else if (x % 2 == 0) {
-		document.getElementById("finished-description").innerHTML = null;
+	} else if (n % 4 == 2) {
+		document.getElementById("slide-text-finished").innerHTML = "JavaScript Drum Machine";
+		if (x % 2 == 1) {
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A 'drum kit' the user can play with their keyboard</p>";
+		} else if (x % 2 == 0) {
+			document.getElementById("finished-description").innerHTML = null;
+		}
+	} else if (n % 4 == 3) {
+		document.getElementById("slide-text-finished").innerHTML = "Chop Clock Cooking App";
+		if (x % 2 == 1) {
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A web based application that helps you organize meals</p>";
+		} else if (x % 2 == 0) {
+			document.getElementById("finished-description").innerHTML = null;
+		}
+	} else if (n % 4 == 0) {
+		document.getElementById("slide-text-finished").innerHTML = "Java Animal Sanctuary";
+		if (x % 2 == 1) {
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A simulation of an animal shelter full of dragons and cows, hosted inside the Java console</p>";
+		} else if (x % 2 == 0) {
+			document.getElementById("finished-description").innerHTML = null;
+		}
+
 	}
 }
 
@@ -86,14 +103,20 @@ function plusCurrentDivs(n) {
 }
 
 function showCurrentDescription(x, n) {
-	if (x % 2 == 1) {
-		if (n % 2 == 0) {
-			document.getElementById("current-description").innerHTML = "<p class=\"description\">An idle game in Java</p>";
-		} else if (n % 2 == 1) {
-			document.getElementById("current-description").innerHTML = "<p class=\"description\">A text adventure built in TADS 3</p>";
+	if (n % 2 == 0) {
+		document.getElementById("slide-text-current").innerHTML = "Java Idle Game";
+		if (x % 2 == 1) {
+			document.getElementById("current-description").innerHTML = "<p class=\"description\">An idle game hosted in the Java console</p>";
+		} else if (x % 2 == 0) {
+			document.getElementById("current-description").innerHTML = null;
 		}
-	} else if (x % 2 == 0) {
-		document.getElementById("current-description").innerHTML = null;
+	} else if (n % 2 == 1) {
+		document.getElementById("slide-text-current").innerHTML = "Nameless, a text adventure";
+		if (x % 2 == 1) {
+			document.getElementById("current-description").innerHTML = "<p class=\"description\">A text adventure built in TADS 3, takes place inside an ethereal mansion</p>";
+		} else if (x % 2 == 0) {
+			document.getElementById("current-description").innerHTML = null;
+		}
 	}
 }
 
