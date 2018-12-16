@@ -66,7 +66,7 @@ function showFinishedDescription(x, n) {
 	} else if (n % 4 == 0) {
 		document.getElementById("slide-text-finished").innerHTML = "Java Animal Sanctuary";
 		if (x % 2 == 1) {
-			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A simulation of an animal shelter full of dragons and cows, hosted inside the Java console</p>";
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A simulation of an animal shelter hosted inside the Java console</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
