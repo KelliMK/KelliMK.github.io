@@ -64,9 +64,9 @@ function showFinishedDescription(x, n) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
 	} else if (n % 4 == 0) {
-		document.getElementById("slide-text-finished").innerHTML = "Java Animal Sanctuary";
+		document.getElementById("slide-text-finished").innerHTML = "Simple Blob Game";
 		if (x % 2 == 1) {
-			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A simulation of an animal shelter hosted inside the Java console</p>";
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A game where the player picks up some blobs and puts them in a fountain</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
