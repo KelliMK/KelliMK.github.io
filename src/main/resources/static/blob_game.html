@@ -7,11 +7,15 @@
 <style></style>
 <script src="pixi/pixi.min.js"></script>
 <script src="pixi/spriteUtilities.js"></script>
-<script src="pixi/dust.js"></script>
+<script src="pixi/sound.js"></script>
 <body>
   <div id="fuck">
     <script type="text/javascript">
-    // Add new texts for shit and keep going with the book!!
+    // To Do:
+    // Remember to attribute Woke's music to them under the name "Loch SNES Monster"
+    // Need to work on sound implementation
+    // Need to work on Blob states
+
     // Aliases
     let Application = PIXI.Application;
     let Container = PIXI.Container;
@@ -40,34 +44,65 @@
 
     loader
     .add("img/genericOverWorld.json")
-    .load(setup);
+    .load(setupSounds);
     console.log(PIXI.loader.resources);
 
+    // Setup scene variables
+    let gameScene, gameOverScene, menuScene, settingsScene, textScene;
+
     // Setup object variables that will be used by other functions
-    let arena, blob, blobs, currentBlobs, door, exit, explorer, fountain,
-    textScene, gameScene, id, player, state;
+    let arena, blob, blobs, blobsHeld, door, exit, explorer, fountain, id,
+    player, state;
+    let initialBlobs = 8;
 
     // Setup text variables
     let continueMessage, message1, message2, message3, message4, message5,
     message6, message7, message8, message9, message10, style1, style2, style3,
     style4;
 
+    // Setup iteration variables
     let iteration = 1;
+    let openDoorSoundTrigger = 1;
+    let pickupBlobSoundTrigger;
 
-    let initialBlobs = 8;
-    let holdingBlob = false;
+    // Setup sound variables
+    let backgroundMusic, menuMusic, openDoorSound, pickupBlobSound, settingsMusic;
 
     // Capture the WSAD keys for player direction
     let up = keyboard("w"),
+    largeUp = keyboard("W"),
     down = keyboard("s"),
+    largeDown = keyboard("S"),
     right = keyboard("d"),
+    largeRight = keyboard("D"),
     left = keyboard("a"),
+    largeLeft = keyboard("A"),
     enter = keyboard("Enter");
 
     // Movement vector
     let movement = [0, 0];
 
+    // Create setupSounds()
+    function setupSounds(){
+      // Load Sounds
+      sounds.load([
+        "sound/happy.wav",
+        "sound/openDoor.wav",
+        "sound/pickupBlob.wav"
+      ]);
+      backgroundMusic = sounds["sounds/happy.wav"];
+      openDoorSound = sounds["sounds/openDoor.wav"];
+      pickupBlobSound = sounds["sounds/pickupBlob.wav"];
+      sounds.whenLoaded = setup;
+    };
+
     function setup() {
+
+      // make blob pickup sound trigger = 0 for this iteration
+      pickupBlobSoundTrigger = 0;
+      backgroundMusic.loop = true;
+      backgroundMusic.volume = 0.5;
+      backgroundMusic.playFrom(0);
 
       // Create the 'gameScene' group
       gameScene = new Container();
@@ -77,6 +112,16 @@
       textScene = new Container();
       textScene.visible = false;
       app.stage.addChild(textScene);
+
+      // Create the 'gameOverScene' group
+      gameOverScene = new Container();
+      gameOverScene.visible = false;
+      app.stage.addChild(gameOverScene);
+
+      // Create the 'menuScene' group
+      menuScene = new Container();
+
+      // Create the 'settingsScene' group
 
       // Make the sprites and add them to the 'gameScene'
       // Create an alias for the texture atlas frame ids
@@ -152,18 +197,20 @@
       gameScene.addChild(explorer);
 
       // Create blobs
-      currentBlobs = initialBlobs;
       let spacing = 50;
       let xOffset = 60;
 
       // An array to store all the blob cuties
       blobs = [];
 
+      // An array to record how many blobs have been picked up
+      blobsHeld = [];
+
       // Make as many blobs as there are 'numberOfBlobs'
       for (let i = 0; i < initialBlobs; i++) {
-
-        // Make a blob
-        blob = new Sprite(id["blobIdleOne.png"]);
+        let blobFrameArray = [id["blobIdleOne.png"], id["blobIdleTwo.png"]];
+        blob = new MovieClip(blobFrameArray);
+        blob.play();
         let x = spacing * i + xOffset;
         let y = randomInt(0, app.stage.height - blob.height);
 
@@ -179,11 +226,11 @@
       //Left arrow key `press` method
       left.press = function() {
         explorer.playAnimation(explorer.states.walkLeft);
-        if (holdingBlob == false) {
-          explorer.vx = -(2 / iteration);
+        if (blobsHeld.length == 0) {
+          explorer.vx = -(4 / iteration);
           explorer.vy = 0;
-        } else if (holdingBlob == true) {
-          explorer.vx = -(1 / iteration);
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = -(2 / iteration);
           explorer.vy = 0;
         }
       };
@@ -203,12 +250,12 @@
       //Up
       up.press = function() {
         explorer.playAnimation(explorer.states.walkUp);
-        if (holdingBlob == false) {
+        if (blobsHeld.length === 0) {
+          explorer.vx = 0;
+          explorer.vy = -(4 / iteration);
+        } else if (blobsHeld.length >= 1) {
           explorer.vx = 0;
           explorer.vy = -(2 / iteration);
-        } else if (holdingBlob == true) {
-          explorer.vx = 0;
-          explorer.vy = -(1 / iteration);
         }
       };
       up.release = function() {
@@ -221,11 +268,11 @@
       //Right
       right.press = () => {
         explorer.playAnimation(explorer.states.walkRight);
-        if (holdingBlob == false) {
-          explorer.vx = (2 / iteration);
+        if (blobsHeld.length === 0) {
+          explorer.vx = (4 / iteration);
           explorer.vy = 0;
-        } else if (holdingBlob == true) {
-          explorer.vx = (1 / iteration);
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = (2 / iteration);
           explorer.vy = 0;
         }
       };
@@ -239,12 +286,12 @@
       //Down
       down.press = function() {
         explorer.playAnimation(explorer.states.walkDown);
-        if (holdingBlob == false) {
+        if (blobsHeld.length === 0) {
+          explorer.vx = 0;
+          explorer.vy = (4 / iteration);
+        } else if (blobsHeld.length >= 1) {
           explorer.vx = 0;
           explorer.vy = (2 / iteration);
-        } else if (holdingBlob == true) {
-          explorer.vx = 0;
-          explorer.vy = (1 / iteration);
         }
       };
       down.release = function() {
@@ -259,7 +306,8 @@
         if (textScene.visible === true && gameScene.visible === false) {
           explorer.vx = 0;
           explorer.vy = 0;
-          runSetup();
+          ++iteration;
+          setup();
         }
       };
 
@@ -312,8 +360,6 @@
 
     function runSetup(){
       ++iteration;
-      //gameScene.destroy({children:true, texture:true, baseTexture:true});
-      //textScene.destroy({children:true, texture:true, baseTexture:true});
       setup();
     }
 
@@ -325,7 +371,6 @@
 
       // Update the current game state:
       state(delta);
-      dust.update();
     }
 
     function play(delta) {
@@ -340,26 +385,26 @@
 
       blobs.forEach(function(blob) {
         // Hit test for picking up blobs
-        if(hitTestRectangle(explorer, blob)) {
-          holdingBlob = true;
+        if(hitTestRectangle(explorer, blob) && (blobsHeld.length == 0 || blobsHeld[0] == blob)) {
+          if(blobsHeld.length === 0){
+            blobsHeld.push(blob);
+            pickupSound();
+          }
           blob.x = explorer.x + 4;
           blob.y = explorer.y + 4;
-        } else {
-          holdingBlob = false;
         }
         // Hit test for putting blobs in the fountains
-        if(hitTestRectangle(explorer, fountain) && holdingBlob == true) {
-          blob.x = explorer.x + 4000;
-          blob.y = explorer.y + 4000;
-          holdingBlob = false;
-          currentBlobs = currentBlobs - 1;
-          gameScene.removeChild(blob);
+        if(hitTestRectangle(blob, fountain) && blobsHeld.length > 0) {
+          removeBlob(blob);
         }
       })
-      if(currentBlobs <= 0) {
+      if (blobs.length <= 0 && openDoorSoundTrigger <= iteration) {
+        doorSound();
+      }
+      if(blobs.length <= 0) {
         door.show(door.states.open);
       }
-      if(hitTestRectangle(explorer, door) && currentBlobs <= 0) {
+      if(hitTestRectangle(explorer, door) && blobs.length <= 0) {
         TextState();
       }
     }
@@ -374,6 +419,7 @@
     }
 
     function TextState() {
+      backgroundMusic.pause();
       gameScene.visible = false;
       textScene.visible = true;
     }
@@ -508,6 +554,23 @@
       //`hit` will be either `true` or `false`
       return hit;
     };
+
+    function removeBlob(aBlob) {
+      let a = blobs.indexOf(aBlob);
+      blobs.splice(a, 1);
+      let b = blobsHeld.indexOf(aBlob);
+      blobsHeld.splice(b, 1);
+      gameScene.removeChild(aBlob);
+    }
+
+    function doorSound() {
+      ++openDoorSoundTrigger;
+      openDoorSound.play();
+    };
+
+    function pickupSound() {
+      pickupBlobSound.play();
+    }
     </script>
   </div>
 </body>
