@@ -93,13 +93,13 @@
     function setupSounds(){
       // Load Sounds
       sounds.load([
-        "sound/happy.wav",
-        "sound/openDoor.wav",
-        "sound/pickupBlob.wav"
+        "sounds/happy.wav",
+        "sounds/openDoor.wav",
+        "sounds/pickupBlob.wav"
       ]);
-      backgroundMusic = sounds["sound/happy.wav"];
-      openDoorSound = sounds["sound/openDoor.wav"];
-      pickupBlobSound = sounds["sound/pickupBlob.wav"];
+      backgroundMusic = sounds["sounds/happy.wav"];
+      openDoorSound = sounds["sounds/openDoor.wav"];
+      pickupBlobSound = sounds["sounds/pickupBlob.wav"];
       sounds.whenLoaded = getUserInput;
     };
 
