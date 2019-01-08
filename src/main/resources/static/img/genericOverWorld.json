@@ -20,11 +20,11 @@
 },
 "blobIdleOne.png":
 {
-	"frame": {"x":332,"y":515,"w":12,"h":13},
+	"frame": {"x":332,"y":514,"w":12,"h":14},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":13},
-	"sourceSize": {"w":12,"h":13},
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":14},
+	"sourceSize": {"w":12,"h":14},
 	"anchor": {"x":0.5,"y":0.5}
 },
 "blobIdleTwo.png":
