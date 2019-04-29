@@ -104,9 +104,9 @@ function plusCurrentDivs(n) {
 
 function showCurrentDescription(x, n) {
 	if (n % 2 == 0) {
-		document.getElementById("slide-text-current").innerHTML = "Java Idle Game";
+		document.getElementById("slide-text-current").innerHTML = "Fade (RPG)";
 		if (x % 2 == 1) {
-			document.getElementById("current-description").innerHTML = "<p class=\"description\">An idle game hosted in the Java console</p>";
+			document.getElementById("current-description").innerHTML = "<p class=\"description\">An upcoming RPG with the very original premise of children saving the world</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("current-description").innerHTML = null;
 		}
