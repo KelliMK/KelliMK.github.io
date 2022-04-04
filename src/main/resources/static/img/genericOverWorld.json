@@ -1,0 +1,264 @@
+{"frames": {
+
+"blobEastOne.png":
+{
+	"frame": {"x":286,"y":538,"w":12,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":14},
+	"sourceSize": {"w":12,"h":14},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"blobEastTwo.png":
+{
+	"frame": {"x":290,"y":515,"w":12,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":14},
+	"sourceSize": {"w":12,"h":14},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"blobIdleOne.png":
+{
+	"frame": {"x":332,"y":514,"w":12,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":14},
+	"sourceSize": {"w":12,"h":14},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"blobIdleTwo.png":
+{
+	"frame": {"x":300,"y":531,"w":12,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":14},
+	"sourceSize": {"w":12,"h":14},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"blobNorthOne.png":
+{
+	"frame": {"x":304,"y":515,"w":12,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":14},
+	"sourceSize": {"w":12,"h":14},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"blobNorthTwo.png":
+{
+	"frame": {"x":300,"y":547,"w":12,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":14},
+	"sourceSize": {"w":12,"h":14},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"blobSouthOne.png":
+{
+	"frame": {"x":314,"y":531,"w":12,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":14},
+	"sourceSize": {"w":12,"h":14},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"blobSouthTwo.png":
+{
+	"frame": {"x":318,"y":515,"w":12,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":14},
+	"sourceSize": {"w":12,"h":14},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"blobWestOne.png":
+{
+	"frame": {"x":314,"y":547,"w":12,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":14},
+	"sourceSize": {"w":12,"h":14},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"blobWestTwo.png":
+{
+	"frame": {"x":328,"y":531,"w":12,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":12,"h":14},
+	"sourceSize": {"w":12,"h":14},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"fountainOne.png":
+{
+	"frame": {"x":1,"y":515,"w":48,"h":47},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":47},
+	"sourceSize": {"w":48,"h":47},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"fountainThree.png":
+{
+	"frame": {"x":51,"y":515,"w":48,"h":47},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":47},
+	"sourceSize": {"w":48,"h":47},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"fountainTwo.png":
+{
+	"frame": {"x":101,"y":515,"w":48,"h":47},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":47},
+	"sourceSize": {"w":48,"h":47},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"islandArena.png":
+{
+	"frame": {"x":1,"y":1,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerIdleEast.png":
+{
+	"frame": {"x":224,"y":539,"w":13,"h":22},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":22},
+	"sourceSize": {"w":13,"h":22},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerIdleNorth.png":
+{
+	"frame": {"x":151,"y":547,"w":15,"h":23},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":23},
+	"sourceSize": {"w":15,"h":23},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerIdleSouth.png":
+{
+	"frame": {"x":176,"y":547,"w":15,"h":22},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":22},
+	"sourceSize": {"w":15,"h":22},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerIdleWest.png":
+{
+	"frame": {"x":228,"y":515,"w":13,"h":22},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":22},
+	"sourceSize": {"w":13,"h":22},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerWalkEastOne.png":
+{
+	"frame": {"x":256,"y":538,"w":13,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":21},
+	"sourceSize": {"w":13,"h":21},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerWalkEastTwo.png":
+{
+	"frame": {"x":260,"y":515,"w":13,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":21},
+	"sourceSize": {"w":13,"h":21},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerWalkNorthOne.png":
+{
+	"frame": {"x":200,"y":547,"w":15,"h":22},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":22},
+	"sourceSize": {"w":15,"h":22},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerWalkNorthTwo.png":
+{
+	"frame": {"x":211,"y":515,"w":15,"h":22},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":22},
+	"sourceSize": {"w":15,"h":22},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerWalkSouthOne.png":
+{
+	"frame": {"x":239,"y":539,"w":15,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":21},
+	"sourceSize": {"w":15,"h":21},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerWalkSouthTwo.png":
+{
+	"frame": {"x":243,"y":515,"w":15,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":21},
+	"sourceSize": {"w":15,"h":21},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerWalkWestOne.png":
+{
+	"frame": {"x":271,"y":538,"w":13,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":21},
+	"sourceSize": {"w":13,"h":21},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"playerWalkWestTwo.png":
+{
+	"frame": {"x":275,"y":515,"w":13,"h":21},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":21},
+	"sourceSize": {"w":13,"h":21},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"trapDoorClosed.png":
+{
+	"frame": {"x":151,"y":515,"w":28,"h":30},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":30},
+	"sourceSize": {"w":28,"h":30},
+	"anchor": {"x":0.5,"y":0.5}
+},
+"trapDoorOpen.png":
+{
+	"frame": {"x":181,"y":515,"w":28,"h":30},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":30},
+	"sourceSize": {"w":28,"h":30},
+	"anchor": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "genericOverWorld.png",
+	"format": "RGBA8888",
+	"size": {"w":514,"h":563},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ab4775b03d81b4e71937868d6eea5beb:a9c3f09b6f601dfeb3556a9343ffc970:c53d0af49db56af67ed8dc268136ce46$"
+}
+}

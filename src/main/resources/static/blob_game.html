@@ -1,0 +1,751 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dry Blob's Probs</title>
+</head>
+<style></style>
+<script src="pixi/pixi.min.js"></script>
+<script src="pixi/spriteUtilities.js"></script>
+<script src="pixi/dust.js"></script>
+<script src="pixi/sound.js"></script>
+<body>
+  <div id="fuck">
+    <a id="shit" class="farts"><a>
+    <script type="text/javascript">
+    // To Do:
+    // Remember to attribute Woke's music to them under the name "Loch SNES Monster"
+    // Need to work on sound implementation
+
+    // Aliases
+    let Application = PIXI.Application;
+    let Container = PIXI.Container;
+    let dust = new Dust(PIXI);
+    let Graphics = PIXI.Graphics;
+    let loader = PIXI.loader;
+    let MovieClip = PIXI.extras.MovieClip;
+    let resources = PIXI.loader.resources;
+    let Sprite = PIXI.Sprite;
+    let su = new SpriteUtilities(PIXI);
+    let Text = PIXI.Text;
+    let TextStyle = PIXI.TextStyle;
+    let TextureCache = PIXI.utils.TextureCache;
+
+    //Create a Pixi Application
+    let app = new Application({
+      width: 512,
+      height: 512,
+      antialias: true,
+      transparent: false,
+      resolution: 1
+    });
+
+    //Add the canvas that Pixi automatically created for you to the HTML document
+    document.body.appendChild(app.view);
+
+    loader
+    .add("img/genericOverWorld.json")
+    .load(setupSounds);
+    console.log(PIXI.loader.resources);
+
+    // Setup scene variables
+    let gameScene, gameOverScene, menuScene, settingsScene, textScene;
+
+    // Setup object variables that will be used by other functions
+    let arena, blob, blobs, blobsHeld, door, exit, explorer, fountain, id,
+    player, state;
+    let initialBlobs = 8;
+
+    // Setup text variables
+    let continueMessage, message1, message2, message3, message4, message5,
+    message6, message7, message8, message9, message10, style1, style2, style3,
+    style4;
+
+    // Setup iteration variables
+    let iteration = 1;
+    let openDoorSoundTrigger = 1;
+
+    // Setup sound variables
+    let backgroundMusic, menuMusic, openDoorSound, pickupBlobSound, settingsMusic;
+    let backgroundMusicPlaying = false;
+
+    // Capture the WSAD keys for player direction
+    let up = keyboard("w"),
+    largeUp = keyboard("W"),
+    arrowUp = keyboard("ArrowUp"),
+    down = keyboard("s"),
+    largeDown = keyboard("S"),
+    arrowDown = keyboard("ArrowDown"),
+    right = keyboard("d"),
+    largeRight = keyboard("D"),
+    arrowRight = keyboard("ArrowRight")
+    left = keyboard("a"),
+    largeLeft = keyboard("A"),
+    arrowLeft = keyboard("ArrowLeft"),
+    muteBackground = keyboard("m"),
+    largeMuteBackground = keyboard("M"),
+    enter = keyboard("Enter");
+
+    // Movement vector
+    let movement = [0, 0];
+
+    // Create setupSounds()
+    function setupSounds(){
+      // Load Sounds
+      sounds.load([
+        "sounds/happy.wav",
+        "sounds/openDoor.wav",
+        "sounds/pickupBlob.wav"
+      ]);
+      backgroundMusic = sounds["sounds/happy.wav"];
+      openDoorSound = sounds["sounds/openDoor.wav"];
+      pickupBlobSound = sounds["sounds/pickupBlob.wav"];
+      sounds.whenLoaded = getUserInput;
+    };
+
+    function setup() {
+
+      // make blob pickup sound trigger = 0 for this iteration
+      backgroundMusicPlaying = true;
+      backgroundMusic.loop = true;
+      backgroundMusic.volume = 0.5;
+      backgroundMusic.playFrom(0);
+
+      // Create the 'gameScene' group
+      gameScene = new Container();
+      app.stage.addChild(gameScene);
+
+      // Create the 'textScene' group
+      textScene = new Container();
+      textScene.visible = false;
+      app.stage.addChild(textScene);
+
+      // Create the 'gameOverScene' group
+      gameOverScene = new Container();
+      gameOverScene.visible = false;
+      app.stage.addChild(gameOverScene);
+
+      // Create the 'menuScene' group
+      menuScene = new Container();
+      menuScene.visible = false;
+      app.stage.addChild(menuScene);
+
+      // Create the 'settingsScene' group
+      settingsScene = new Container();
+      settingsScene.visible = false;
+      app.stage.addChild(settingsScene);
+
+      // Make the sprites and add them to the 'gameScene'
+      // Create an alias for the texture atlas frame ids
+      id = resources["img/genericOverWorld.json"].textures;
+
+      // Arena
+      arena = new Sprite(id["islandArena.png"]);
+      gameScene.addChild(arena);
+
+      // door
+      let doorFrameArray = [
+        id["trapDoorClosed.png"],
+        id["trapDoorOpen.png"]
+      ]
+      door = su.sprite(doorFrameArray);
+      door.states = {
+        closed: 0,
+        open: 1
+      }
+      door.show(door.states.closed);
+      door.position.set(32, 16);
+      gameScene.addChild(door);
+
+      // Create the 'Fountain' Sprite
+      let fountainFrames = [
+        id["fountainOne.png"],
+        id["fountainTwo.png"],
+        id["fountainThree.png"]
+      ];
+      fountain = new MovieClip(fountainFrames);
+      fountain.x = gameScene.width - fountain.width - 20;
+      fountain.y = gameScene.height - fountain.height - 20;
+      fountain.play();
+      fountain.animationSpeed = 0.125;
+      gameScene.addChild(fountain);
+
+      // Explorer
+      let explorerFrameArray = [
+        id["playerWalkNorthOne.png"], // 0
+        id["playerIdleNorth.png"],    // 1
+        id["playerWalkNorthTwo.png"], // 2
+        id["playerIdleNorth.png"],    // 3
+        id["playerWalkEastOne.png"],  // 4
+        id["playerIdleEast.png"],     // 5
+        id["playerWalkEastTwo.png"],  // 6
+        id["playerIdleEast.png"],     // 7
+        id["playerWalkWestOne.png"],  // 8
+        id["playerIdleWest.png"],     // 9
+        id["playerWalkWestTwo.png"],  // 10
+        id["playerIdleWest.png"],     // 11
+        id["playerWalkSouthOne.png"], // 12
+        id["playerIdleSouth.png"],    // 13
+        id["playerWalkSouthTwo.png"], // 14
+        id["playerIdleSouth.png"]     // 15
+      ];
+      explorer = su.sprite(explorerFrameArray);
+      explorer.states = {
+        up: 1,
+        right: 5,
+        left: 9,
+        down: 13,
+        walkUp: [0, 3],
+        walkRight: [4, 7],
+        walkLeft: [8, 11],
+        walkDown: [12, 15]
+      }
+      explorer.show(explorer.states.down);
+      explorer.x = 80;
+      explorer.y = gameScene.height / 2 - explorer.height / 2;
+      explorer.vx = 0;
+      explorer.vy = 0;
+      explorer.fps = 12;
+      gameScene.addChild(explorer);
+
+      // Create blobs
+      let spacing = 50;
+      let xOffset = 60;
+
+      // An array to store all the blob cuties
+      blobs = [];
+
+      // An array to record how many blobs have been picked up
+      blobsHeld = [];
+
+      // Make as many blobs as there are 'numberOfBlobs'
+      for (let i = 0; i < initialBlobs; i++) {
+        let blobFrameArray = [id["blobIdleOne.png"], id["blobIdleTwo.png"]];
+        blob = new MovieClip(blobFrameArray);
+        blob.play();
+        blob.animationSpeed = 0.05;
+        let x = spacing * i + xOffset;
+        let y = randomInt(0, app.stage.height - blob.height);
+
+        // Set the blob's positions
+        blob.x = x;
+        blob.y = y;
+
+        blobs.push(blob);
+
+        gameScene.addChild(blob);
+      }
+
+      // Setup the input keys
+      keyboardInput();
+      /*mute();*/
+
+      // Create the game over scenes
+      textScene = new Container();
+      app.stage.addChild(textScene);
+      textScene.visible = false;
+
+      // Define each text style
+      style1 = new TextStyle({
+        fontFamily: "Futura",
+        fontSize: 36,
+        fill: "white"
+      });
+
+      style2 = new TextStyle({
+        fontFamily: "Georgia, serif",
+        fontSize: 48,
+        fill: "white"
+      });
+
+      style3 = new TextStyle({
+        fontFamily: "Verdana",
+        fontSize: 16,
+        fill: "white"
+      });
+
+      style4 = new TextStyle({
+        fontFamily: "\"Trebuchet MS\", Helvetica, sans-serif",
+        fontSize: 16,
+        fill: "red",
+        fontVariant: "small-caps",
+        fontWeight: "bold"
+      });
+
+      // create the sprite and add it to the game over scene
+      continueMessage = new Text("Press \"Enter\" to keep going.", style4);
+      continueMessage.anchor.x = 0.5;
+      continueMessage.anchor.y = 0.5;
+      continueMessage.x = app.stage.width / 2;
+      continueMessage.y = app.stage.height - continueMessage.height;
+      textScene.addChild(continueMessage);
+
+      placeText();
+
+      // Set the game state to play
+      state = play;
+      app.ticker.add(delta => gameLoop(delta));
+    }
+
+    function runSetup(){
+      ++iteration;
+      setup();
+    }
+
+    function randomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function gameLoop(delta){
+
+      // Update the current game state:
+      state(delta);
+    }
+
+    function play(delta) {
+      // use the explorer's velocity to make it move
+      explorer.x += explorer.vx;
+      explorer.y += explorer.vy;
+
+      // Contain the explorer inside the area of the dungeonTexture
+      contain(explorer, {x: 8, y: 8, width: 500, height: 500});
+
+      blobs.forEach(function(blob) {
+        // Hit test for picking up blobs
+        if(hitTestRectangle(explorer, blob) && (blobsHeld.length == 0 || blobsHeld[0] == blob)) {
+          if(blobsHeld.length === 0){
+            blobsHeld.push(blob);
+            pickupSound();
+          }
+          blob.x = explorer.x + 4;
+          blob.y = explorer.y + 4;
+        }
+        // Hit test for putting blobs in the fountains
+        if(hitTestRectangle(blob, fountain) && blobsHeld.length > 0) {
+          removeBlob(blob);
+        }
+      })
+      if (blobs.length <= 0 && openDoorSoundTrigger <= iteration) {
+        doorSound();
+      }
+      if(blobs.length <= 0) {
+        door.show(door.states.open);
+      }
+      if(hitTestRectangle(explorer, door) && blobs.length <= 0) {
+        TextState();
+      }
+    }
+
+    function placeText() {
+        message1 = new Text("Success! You helped the blobs out!", style1);
+        message1.anchor.x = 0.5;
+        message1.anchor.y = 0.5;
+        message1.x = app.stage.width / 2;
+        message1.y = app.stage.height / 2;
+        textScene.addChild(message1);
+    }
+
+    function TextState() {
+      gameScene.visible = false;
+      textScene.visible = true;
+      playBackgroundMusic();
+    }
+
+    function keyboard(value) {
+      let key = {};
+      key.value = value;
+      key.isDown = false;
+      key.isUp = true;
+      key.press = undefined;
+      key.release = undefined;
+      //The `downHandler`
+      key.downHandler = event => {
+        if (event.key === key.value) {
+          if (key.isUp && key.press) key.press();
+          key.isDown = true;
+          key.isUp = false;
+          event.preventDefault();
+        }
+      };
+
+      //The `upHandler`
+      key.upHandler = event => {
+        if (event.key === key.value) {
+          if (key.isDown && key.release) key.release();
+          key.isDown = false;
+          key.isUp = true;
+          event.preventDefault();
+        }
+      };
+
+      //Attach event listeners
+      const downListener = key.downHandler.bind(key);
+      const upListener = key.upHandler.bind(key);
+
+      window.addEventListener(
+        "keydown", downListener, false
+      );
+      window.addEventListener(
+        "keyup", upListener, false
+      );
+
+      // Detach event listeners
+      key.unsubscribe = () => {
+        window.removeEventListener("keydown", downListener);
+        window.removeEventListener("keyup", upListener);
+      };
+
+      return key;
+    }
+
+    function keyboardInput() {
+      //Left arrow key `press` method
+      left.press = function() {
+        explorer.playAnimation(explorer.states.walkLeft);
+        if (blobsHeld.length == 0) {
+          explorer.vx = -(4 / iteration);
+          explorer.vy = 0;
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = -(2 / iteration);
+          explorer.vy = 0;
+        }
+      };
+
+      //Left arrow key `release` method
+      left.release = function() {
+
+        //If the left arrow has been released, and the right arrow isn't down,
+        //and the explorer isn't moving vertically:
+        //Stop the explorer
+        if (!right.isDown && explorer.vy === 0) {
+          explorer.show(explorer.states.left);
+          explorer.vx = 0;
+        }
+      };
+
+      largeLeft.press = function() {
+        explorer.playAnimation(explorer.states.walkLeft);
+        if (blobsHeld.length == 0) {
+          explorer.vx = -(4 / iteration);
+          explorer.vy = 0;
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = -(2 / iteration);
+          explorer.vy = 0;
+        }
+      };
+      largeLeft.release = function() {
+        if (!right.isDown && explorer.vy === 0) {
+          explorer.show(explorer.states.left);
+          explorer.vx = 0;
+        }
+      };
+      arrowLeft.press = function() {
+        explorer.playAnimation(explorer.states.walkLeft);
+        if (blobsHeld.length == 0) {
+          explorer.vx = -(4 / iteration);
+          explorer.vy = 0;
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = -(2 / iteration);
+          explorer.vy = 0;
+        }
+      };
+      arrowLeft.release = function() {
+        if (!right.isDown && explorer.vy === 0) {
+          explorer.show(explorer.states.left);
+          explorer.vx = 0;
+        }
+      };
+
+      //Up
+      up.press = function() {
+        explorer.playAnimation(explorer.states.walkUp);
+        if (blobsHeld.length === 0) {
+          explorer.vx = 0;
+          explorer.vy = -(4 / iteration);
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = 0;
+          explorer.vy = -(2 / iteration);
+        }
+      };
+      up.release = function() {
+        if (!down.isDown && explorer.vx === 0) {
+          explorer.show(explorer.states.up);
+          explorer.vy = 0;
+        }
+      };
+      largeUp.press = function() {
+        explorer.playAnimation(explorer.states.walkUp);
+        if (blobsHeld.length === 0) {
+          explorer.vx = 0;
+          explorer.vy = -(4 / iteration);
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = 0;
+          explorer.vy = -(2 / iteration);
+        }
+      };
+      largeUp.release = function() {
+        if (!down.isDown && explorer.vx === 0) {
+          explorer.show(explorer.states.up);
+          explorer.vy = 0;
+        }
+      };
+      arrowUp.press = function() {
+        explorer.playAnimation(explorer.states.walkUp);
+        if (blobsHeld.length === 0) {
+          explorer.vx = 0;
+          explorer.vy = -(4 / iteration);
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = 0;
+          explorer.vy = -(2 / iteration);
+        }
+      };
+      arrowUp.release = function() {
+        if (!down.isDown && explorer.vx === 0) {
+          explorer.show(explorer.states.up);
+          explorer.vy = 0;
+        }
+      };
+
+      //Right
+      right.press = () => {
+        explorer.playAnimation(explorer.states.walkRight);
+        if (blobsHeld.length === 0) {
+          explorer.vx = (4 / iteration);
+          explorer.vy = 0;
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = (2 / iteration);
+          explorer.vy = 0;
+        }
+      };
+      right.release = () => {
+        if (!left.isDown && explorer.vy === 0) {
+          explorer.show(explorer.states.right);
+          explorer.vx = 0;
+        }
+      };
+      largeRight.press = () => {
+        explorer.playAnimation(explorer.states.walkRight);
+        if (blobsHeld.length === 0) {
+          explorer.vx = (4 / iteration);
+          explorer.vy = 0;
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = (2 / iteration);
+          explorer.vy = 0;
+        }
+      };
+      largeRight.release = () => {
+        if (!left.isDown && explorer.vy === 0) {
+          explorer.show(explorer.states.right);
+          explorer.vx = 0;
+        }
+      };
+      arrowRight.press = () => {
+        explorer.playAnimation(explorer.states.walkRight);
+        if (blobsHeld.length === 0) {
+          explorer.vx = (4 / iteration);
+          explorer.vy = 0;
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = (2 / iteration);
+          explorer.vy = 0;
+        }
+      };
+      arrowRight.release = () => {
+        if (!left.isDown && explorer.vy === 0) {
+          explorer.show(explorer.states.right);
+          explorer.vx = 0;
+        }
+      };
+
+      //Down
+      down.press = function() {
+        explorer.playAnimation(explorer.states.walkDown);
+        if (blobsHeld.length === 0) {
+          explorer.vx = 0;
+          explorer.vy = (4 / iteration);
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = 0;
+          explorer.vy = (2 / iteration);
+        }
+      };
+      down.release = function() {
+        if (!up.isDown && explorer.vx === 0) {
+          explorer.show(explorer.states.down);
+          explorer.vy = 0;
+        }
+      };
+      largeDown.press = function() {
+        explorer.playAnimation(explorer.states.walkDown);
+        if (blobsHeld.length === 0) {
+          explorer.vx = 0;
+          explorer.vy = (4 / iteration);
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = 0;
+          explorer.vy = (2 / iteration);
+        }
+      };
+      largeDown.release = function() {
+        if (!up.isDown && explorer.vx === 0) {
+          explorer.show(explorer.states.down);
+          explorer.vy = 0;
+        }
+      };
+      arrowDown.press = function() {
+        explorer.playAnimation(explorer.states.walkDown);
+        if (blobsHeld.length === 0) {
+          explorer.vx = 0;
+          explorer.vy = (4 / iteration);
+        } else if (blobsHeld.length >= 1) {
+          explorer.vx = 0;
+          explorer.vy = (2 / iteration);
+        }
+      };
+      arrowDown.release = function() {
+        if (!up.isDown && explorer.vx === 0) {
+          explorer.show(explorer.states.down);
+          explorer.vy = 0;
+        }
+      };
+
+      // Enter
+      enter.press = function() {
+        if (textScene.visible === true && gameScene.visible === false) {
+          explorer.vx = 0;
+          explorer.vy = 0;
+          ++iteration;
+          setup();
+        }
+      };
+
+      muteBackground.press = function() {
+        playBackgroundMusic();
+      };
+      largeMuteBackground.press = function() {
+        playBackgroundMusic();
+      };
+    }
+
+    function contain(sprite, container) {
+
+      let collision = undefined;
+
+      //Left
+      if (sprite.x < container.x) {
+        sprite.x = container.x;
+        collision = "left";
+      }
+
+      //Top
+      if (sprite.y < container.y) {
+        sprite.y = container.y;
+        collision = "top";
+      }
+
+      //Right
+      if (sprite.x + sprite.width > container.width) {
+        sprite.x = container.width - sprite.width;
+        collision = "right";
+      }
+
+      //Bottom
+      if (sprite.y + sprite.height > container.height) {
+        sprite.y = container.height - sprite.height;
+        collision = "bottom";
+      }
+
+      //Return the `collision` value
+      return collision;
+    }
+
+    function hitTestRectangle(r1, r2) {
+
+      //Define the variables we'll need to calculate
+      let hit, combinedHalfWidths, combinedHalfHeights, vx, vy;
+
+      //hit will determine whether there's a collision
+      hit = false;
+
+      //Find the center points of each sprite
+      r1.centerX = r1.x + r1.width / 2;
+      r1.centerY = r1.y + r1.height / 2;
+      r2.centerX = r2.x + r2.width / 2;
+      r2.centerY = r2.y + r2.height / 2;
+
+      //Find the half-widths and half-heights of each sprite
+      r1.halfWidth = r1.width / 2;
+      r1.halfHeight = r1.height / 2;
+      r2.halfWidth = r2.width / 2;
+      r2.halfHeight = r2.height / 2;
+
+      //Calculate the distance vector between the sprites
+      vx = r1.centerX - r2.centerX;
+      vy = r1.centerY - r2.centerY;
+
+      //Figure out the combined half-widths and half-heights
+      combinedHalfWidths = r1.halfWidth + r2.halfWidth;
+      combinedHalfHeights = r1.halfHeight + r2.halfHeight;
+
+      //Check for a collision on the x axis
+      if (Math.abs(vx) < combinedHalfWidths) {
+
+        //A collision might be occuring. Check for a collision on the y axis
+        if (Math.abs(vy) < combinedHalfHeights) {
+
+          //There's definitely a collision happening
+          hit = true;
+        } else {
+
+          //There's no collision on the y axis
+          hit = false;
+        }
+      } else {
+
+        //There's no collision on the x axis
+        hit = false;
+      }
+
+      //`hit` will be either `true` or `false`
+      return hit;
+    };
+
+    function removeBlob(aBlob) {
+      let a = blobs.indexOf(aBlob);
+      blobs.splice(a, 1);
+      let b = blobsHeld.indexOf(aBlob);
+      blobsHeld.splice(b, 1);
+      gameScene.removeChild(aBlob);
+    }
+
+    function playBackgroundMusic() {
+      if (backgroundMusicPlaying == true) {
+        backgroundMusic.pause();
+        backgroundMusicPlaying = false;
+      } else if (gameScene.visible == true && backgroundMusicPlaying == false) {
+        backgroundMusic.play();
+        backgroundMusicPlaying = true;
+      }
+    }
+
+    function getUserInput() {
+      document.getElementById("shit").innerHTML = "<button onclick=\"startTheGame()\">I needed to add this button because of Google Chrome's Autoplay Policy</button>";
+    }
+
+    function startTheGame() {
+      document.getElementById("shit").innerHTML = "";
+      shit.className += " removed"
+      setup();
+    }
+
+    function doorSound() {
+      ++openDoorSoundTrigger;
+      openDoorSound.volume = 0.5;
+      openDoorSound.play();
+    };
+
+    function pickupSound() {
+      pickupBlobSound.volume = 0.5;
+      pickupBlobSound.play();
+    }
+    </script>
+  </div>
+</body>
+</html>
