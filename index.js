@@ -43,14 +43,14 @@ function plusFinishedDivs(n) {
 
 function showFinishedDescription(x, n) {
 	if (n % 4 == 1) {
-		document.getElementById("slide-text-finished").innerHTML = "JavaScript Clock";
+		document.getElementById("slide-text-finished").innerHTML = "KKSharp";
 		if (x % 2 == 1) {
-			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A clock whose cogs are built entirely out of JavaScript</p>";
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A simple programming language</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
 	} else if (n % 4 == 2) {
-		document.getElementById("slide-text-finished").innerHTML = "JavaScript Drum Machine";
+		document.getElementById("slide-text-finished").innerHTML = "CRUD Database Should Go Here";
 		if (x % 2 == 1) {
 			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A 'drum kit' the user can play with their keyboard</p>";
 		} else if (x % 2 == 0) {

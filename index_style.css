@@ -307,7 +307,6 @@ footer {
 .collapsible {
 	background-color: #7d92e1;
 	color: black;
-	cursor: crosshair;
 	padding: 20px;
 	width: 100%;
 	text-align: center;
@@ -412,7 +411,6 @@ footer {
 .close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
 }
 
 .links {
