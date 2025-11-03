@@ -52,14 +52,14 @@ function showFinishedDescription(x, n) {
 	} else if (n % 4 == 2) {
 		document.getElementById("slide-text-finished").innerHTML = "CRUD Database Basic";
 		if (x % 2 == 1) {
-			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A simple CRUD database built using MySQL and PHP. Cannot be instantiated in Guthub Pages.</p>";
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A simple CRUD database built using MySQL and PHP. Cannot be instantiated in Github Pages.</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
 	} else if (n % 4 == 3) {
-		document.getElementById("slide-text-finished").innerHTML = "Chop Clock Cooking App";
+		document.getElementById("slide-text-finished").innerHTML = "Pico-8 Screensaver";
 		if (x % 2 == 1) {
-			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A web based application that helps you organize meals</p>";
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A simple screensaver made with some trig. Built in Pico-8.</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
