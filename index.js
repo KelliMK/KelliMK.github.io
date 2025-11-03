@@ -50,9 +50,9 @@ function showFinishedDescription(x, n) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
 	} else if (n % 4 == 2) {
-		document.getElementById("slide-text-finished").innerHTML = "CRUD Database Should Go Here";
+		document.getElementById("slide-text-finished").innerHTML = "CRUD Database Basic";
 		if (x % 2 == 1) {
-			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A 'drum kit' the user can play with their keyboard</p>";
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A simple CRUD database built using MySQL and PHP. Cannot be instantiated in Guthub Pages.</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
@@ -104,9 +104,9 @@ function plusCurrentDivs(n) {
 
 function showCurrentDescription(x, n) {
 	if (n % 2 == 0) {
-		document.getElementById("slide-text-current").innerHTML = "Fade (RPG)";
+		document.getElementById("slide-text-current").innerHTML = "RISC-V-KK";
 		if (x % 2 == 1) {
-			document.getElementById("current-description").innerHTML = "<p class=\"description\">An upcoming RPG with the very original premise of children saving the world</p>";
+			document.getElementById("current-description").innerHTML = "<p class=\"description\">A CPU built in VHDL that implements the RV32I ISA</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("current-description").innerHTML = null;
 		}
