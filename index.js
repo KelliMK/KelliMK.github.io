@@ -42,31 +42,39 @@ function plusFinishedDivs(n) {
 }
 
 function showFinishedDescription(x, n) {
-	if (n % 4 == 1) {
+	if (n % 5 == 1) {
 		document.getElementById("slide-text-finished").innerHTML = "KKSharp";
 		if (x % 2 == 1) {
 			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A programming language</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
-	} else if (n % 4 == 2) {
+	} else if (n % 5 == 2) {
 		document.getElementById("slide-text-finished").innerHTML = "CRUD Database Basic";
 		if (x % 2 == 1) {
 			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A CRUD database built using MySQL and PHP. Cannot be instantiated in Github Pages.</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
-	} else if (n % 4 == 3) {
+	} else if (n % 5 == 3) {
 		document.getElementById("slide-text-finished").innerHTML = "Pico-8 Screensaver";
 		if (x % 2 == 1) {
 			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A screensaver made with some trig. Built in Pico-8.</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
-	} else if (n % 4 == 0) {
+	} else if (n % 5 == 4) {
 		document.getElementById("slide-text-finished").innerHTML = "Simple Blob Game";
 		if (x % 2 == 1) {
 			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A game where the player picks up some blobs and puts them in a fountain</p>";
+		} else if (x % 2 == 0) {
+			document.getElementById("finished-description").innerHTML = null;
+		}
+
+	} else if (n % 5 == 0) {
+		document.getElementById("slide-text-finished").innerHTML = "RISC-V-KK";
+		if (x % 2 == 1) {
+			document.getElementById("finished-description").innerHTML = "<p class=\"description\">A CPU built in VHDL that implements the RV32I ISA</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("finished-description").innerHTML = null;
 		}
@@ -104,9 +112,9 @@ function plusCurrentDivs(n) {
 
 function showCurrentDescription(x, n) {
 	if (n % 2 == 0) {
-		document.getElementById("slide-text-current").innerHTML = "RISC-V-KK";
+		document.getElementById("slide-text-current").innerHTML = "Unnamed NixOS Project";
 		if (x % 2 == 1) {
-			document.getElementById("current-description").innerHTML = "<p class=\"description\">A CPU built in VHDL that implements the RV32I ISA</p>";
+			document.getElementById("current-description").innerHTML = "<p class=\"description\">A NixOS image that aims to be an out of the box file server for old PCs</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("current-description").innerHTML = null;
 		}
