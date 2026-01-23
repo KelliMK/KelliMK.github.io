@@ -111,14 +111,14 @@ function plusCurrentDivs(n) {
 }
 
 function showCurrentDescription(x, n) {
-	if (n % 2 == 0) {
+	if (n % 2 == 1) {
 		document.getElementById("slide-text-current").innerHTML = "Unnamed NixOS Project";
 		if (x % 2 == 1) {
 			document.getElementById("current-description").innerHTML = "<p class=\"description\">A NixOS image that aims to be an out of the box file server for old PCs</p>";
 		} else if (x % 2 == 0) {
 			document.getElementById("current-description").innerHTML = null;
 		}
-	} else if (n % 2 == 1) {
+	} else if (n % 2 == 0) {
 		document.getElementById("slide-text-current").innerHTML = "Nameless, a text adventure";
 		if (x % 2 == 1) {
 			document.getElementById("current-description").innerHTML = "<p class=\"description\">A text adventure built in TADS 3, takes place inside an ethereal mansion</p>";
